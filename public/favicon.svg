@@ -1,0 +1,11 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="36" fill="#2563EB" />
+  <text x="18" y="130" font-family="monospace" font-size="120" fill="white" font-weight="bold">[</text>
+  <text x="124" y="130" font-family="monospace" font-size="120" fill="white" font-weight="bold">]</text>
+  <rect x="64" y="50" width="20" height="20" rx="3" fill="white" opacity="0.9" />
+  <rect x="96" y="50" width="20" height="20" rx="3" fill="white" opacity="0.9" />
+  <rect x="64" y="80" width="20" height="20" rx="3" fill="white" opacity="0.9" />
+  <rect x="96" y="80" width="20" height="20" rx="3" fill="white" opacity="0.9" />
+  <rect x="64" y="110" width="20" height="20" rx="3" fill="white" opacity="0.7" />
+  <rect x="96" y="110" width="20" height="20" rx="3" fill="white" opacity="0.7" />
+</svg>

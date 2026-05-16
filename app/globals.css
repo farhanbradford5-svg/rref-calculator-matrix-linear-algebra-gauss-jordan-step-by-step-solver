@@ -1,0 +1,342 @@
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --accent-green: #10B981;
+  --accent-purple: #7C3AED;
+  --accent-rose: #F43F5E;
+  --surface: #F8FAFC;
+  --border: #E2E8F0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #0F172A;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* KaTeX overrides */
+.katex {
+  font-size: 1.05em !important;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+/* Matrix input styles */
+.matrix-cell {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  text-align: center;
+  min-width: 48px;
+  min-height: 48px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 6px;
+  background: #FFFFFF;
+  color: #0F172A;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  padding: 0 6px;
+}
+
+.matrix-cell:focus {
+  outline: none;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.matrix-cell.error {
+  border-color: #F43F5E;
+  background: #FFF5F7;
+}
+
+/* Step animations */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-enter {
+  animation: fadeSlideIn 0.25s ease-out forwards;
+}
+
+/* Bracket styling for matrix display */
+.matrix-bracket {
+  font-size: 2.5em;
+  line-height: 1;
+  font-weight: 100;
+  color: #475569;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Nav */
+.nav-link {
+  @apply text-slate-600 hover:text-primary font-medium transition-colors duration-150 text-sm;
+}
+
+.nav-link.active {
+  @apply text-primary;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-primary text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-primary-dark transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white text-slate-700 font-medium px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-1;
+}
+
+.btn-ghost {
+  @apply text-slate-600 font-medium px-3 py-1.5 rounded-md hover:bg-slate-100 transition-colors duration-150 text-sm;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-xl border border-slate-200 shadow-card;
+}
+
+/* Trust badges */
+.trust-badge {
+  @apply flex items-center gap-1.5 text-sm text-slate-500;
+}
+
+/* Step item */
+.step-item {
+  @apply border border-slate-200 rounded-lg overflow-hidden;
+}
+
+.step-header {
+  @apply flex items-start gap-3 p-4 cursor-pointer hover:bg-slate-50 transition-colors;
+}
+
+/* Pivot highlight */
+.pivot-highlight {
+  @apply ring-2 ring-primary ring-offset-1 rounded;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-50 text-primary text-xs font-semibold border border-primary-100;
+}
+
+/* Article prose */
+.prose-content h2 {
+  @apply text-xl font-bold text-slate-900 mb-3 mt-8 pb-2 border-b border-slate-100;
+}
+.prose-content h3 {
+  @apply text-base font-semibold text-slate-800 mb-2 mt-5;
+}
+.prose-content p {
+  @apply text-slate-600 leading-relaxed mb-3 text-[15px];
+}
+.prose-content ul {
+  @apply list-disc pl-5 space-y-1 text-slate-600 text-[15px] mb-4;
+}
+.prose-content ol {
+  @apply list-decimal pl-5 space-y-2 text-slate-600 text-[15px] mb-4;
+}
+.prose-content li {
+  @apply leading-relaxed;
+}
+.prose-content strong {
+  @apply text-slate-800 font-semibold;
+}
+.prose-content a {
+  @apply text-primary underline underline-offset-2 hover:text-primary-dark;
+}
+
+/* Worked example blocks */
+.worked-example {
+  @apply bg-slate-50 border border-slate-200 rounded-xl p-4 my-3 overflow-x-auto;
+}
+.worked-example pre {
+  @apply font-mono text-sm text-slate-700 whitespace-pre;
+}
+
+/* FAQ grid */
+.faq-grid {
+  @apply space-y-3;
+}
+.faq-item {
+  @apply card p-4;
+}
+.faq-item h3 {
+  @apply font-semibold text-slate-800 mb-1 !border-0 !mt-0 !pb-0 text-sm;
+}
+.faq-item p {
+  @apply text-slate-600 text-sm !mb-0;
+}
+
+/* Inline KaTeX helper class */
+.katex-display-block {
+  @apply bg-slate-50 border border-slate-200 rounded-xl p-4 my-3 font-mono text-sm text-slate-700 overflow-x-auto;
+}
+
+/* ── Print Stylesheet ─────────────────────────────────────────────────────── */
+@media print {
+  /* Hide navigation, ads, interactive controls, footer */
+  nav,
+  footer,
+  [id^="ad-slot"],
+  [class*="AdSlot"],
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  button,
+  details > summary::marker,
+  [aria-label="Toggle menu"] {
+    display: none !important;
+  }
+
+  /* Reset body for print */
+  body {
+    font-size: 11pt;
+    color: #000;
+    background: #fff;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Full-width content */
+  main,
+  article,
+  .max-w-7xl,
+  .max-w-4xl,
+  .max-w-3xl {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Page breaks */
+  h1, h2 {
+    page-break-after: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Cards print as bordered boxes */
+  .card {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+  }
+
+  /* KaTeX renders correctly in print */
+  .katex {
+    font-size: 1em !important;
+  }
+
+  .katex-display {
+    overflow: visible !important;
+  }
+
+  /* Expand all details/summary for print */
+  details {
+    display: block;
+  }
+
+  details > summary {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  details > summary::after {
+    content: "" !important;
+  }
+
+  /* Show full step content */
+  .step-item {
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  /* Matrix cells */
+  .matrix-cell {
+    border: 1px solid #999 !important;
+    background: #fff !important;
+  }
+
+  /* Trust badges */
+  .trust-badge {
+    display: none !important;
+  }
+
+  /* Worked examples */
+  .worked-example {
+    background: #f9f9f9 !important;
+    border: 1px solid #ccc !important;
+  }
+
+  /* Links show URL after href */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    color: #555;
+  }
+
+  /* But not internal links or icon-only links */
+  a[href^="/"]:not([href^="http"])::after,
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  /* Print page header */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "RREF Calculator",
+  "short_name": "RREF Calc",
+  "description": "Free online RREF calculator with step-by-step Gauss-Jordan elimination. Exact rational arithmetic.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563EB",
+  "orientation": "portrait-primary",
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
