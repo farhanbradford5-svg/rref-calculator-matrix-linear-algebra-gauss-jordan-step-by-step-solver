@@ -50,6 +50,7 @@ export default function RefVsRrefGuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           REF vs RREF — Row Echelon Form vs Reduced Row Echelon Form
         </h1>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           The difference between REF and RREF is simple but critical. This guide explains the exact conditions for each, why RREF is unique while REF is not, and when to use each form.
           <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>

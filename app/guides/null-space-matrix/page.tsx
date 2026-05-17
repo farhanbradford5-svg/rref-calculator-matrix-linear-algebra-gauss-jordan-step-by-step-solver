@@ -50,6 +50,7 @@ export default function NullSpaceGuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           Null Space of a Matrix — How to Find It Using RREF
         </h1>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           The null space (kernel) is the set of all vectors x satisfying Ax = 0. This guide shows exactly how to find it using reduced row echelon form, with worked examples and a proof of the rank-nullity theorem.
           <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>

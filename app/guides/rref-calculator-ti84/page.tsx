@@ -49,6 +49,7 @@ export default function RREFTi84GuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           RREF on TI-84 vs Online RREF Calculator
         </h1>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           How to use the TI-84's rref( function, why it sometimes gives wrong-looking answers with fractions, and when an online calculator is the better choice.
           <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>

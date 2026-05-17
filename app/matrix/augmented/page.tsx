@@ -119,7 +119,7 @@ export default function AugmentedPage() {
 
             <h3 className="font-semibold text-slate-800 mt-4 mb-2">Case 2: Infinitely Many Solutions (Free Variables)</h3>
             <p>
-              Some variable columns have no pivot — these are free variables. Set each free variable to a parameter (t₁, t₂, …) and express the pivot variables in terms of them. rank(A) = rank([A|b]) &lt; n.
+              Some variable columns have no pivot — these are free variables. Set each free variable to a parameter (t₁, t₂, …) and express the pivot variables in terms of them. rank(A) = rank([A|b]) &lt; n. For a deeper treatment of free variables and the null space, see our <Link href="/guides/null-space-matrix" className="text-primary hover:underline">null space guide</Link>.
             </p>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 my-3 font-mono text-sm overflow-x-auto space-y-1">
               <p>[ 1  0  2 | 3 ]   →   x = 3 − 2t (z = t is free)</p>

@@ -585,7 +585,7 @@ export default function HomePage() {
                 { title: 'Checking Linear Independence', desc: <>Arrange vectors as rows or columns of a matrix. RREF reveals whether they are linearly independent (no zero rows = independent) or dependent. For vector projections and angle checks, see the <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product calculator</Link>.</> },
                 { title: 'Basis for Column/Row Space', desc: 'Pivot columns of A correspond to a basis for the column space. Pivot rows of RREF(A) form a basis for the row space.' },
                 { title: 'Balancing Chemical Equations', desc: 'Stoichiometry problems reduce to linear systems. For example, balancing aC₂H₆ + bO₂ → cCO₂ + dH₂O becomes Ax = 0 solved by RREF.' },
-                { title: 'Computer Graphics', desc: <>Transformation matrices for 3D graphics require inversion (computed via Gauss-Jordan) and rank checking. RREF underlies the matrix math in OpenGL and DirectX. Surface normals use the <Link href="/vectors/cross-product" className="text-primary hover:underline">cross product calculator</Link>.</> },
+                { title: 'Computer Graphics', desc: <>Transformation matrices for 3D graphics require inversion (computed via Gauss-Jordan) and rank checking. RREF underlies the matrix math in OpenGL and DirectX. Surface normals use the <Link href="/vectors/cross-product" className="text-primary hover:underline">cross product calculator</Link>, and the <Link href="/matrix/multiply" className="text-primary hover:underline">matrix multiplication calculator</Link> handles the composition of transformations, while <Link href="/matrix/transpose" className="text-primary hover:underline">matrix transpose</Link> is essential for orthogonal matrices.</> },
               ].map(({ title, desc }) => (
                 <div key={title} className="card p-4">
                   <h3 className="font-semibold text-slate-800 text-sm mb-1">{title}</h3>
@@ -658,6 +658,9 @@ export default function HomePage() {
               { title: 'RREF Step-by-Step Tutorial', href: '/guides/rref-step-by-step-tutorial', desc: 'Three complete worked examples: 2×2, 3×3, and augmented 3×4.' },
               { title: 'Gauss-Jordan vs. Gaussian', href: '/guides/gauss-jordan-vs-gaussian-elimination', desc: 'Which method is faster? Which gives RREF? Identical example, both methods.' },
               { title: 'Linear Algebra for Students', href: '/guides/linear-algebra-for-students', desc: 'Homework help, common mistakes, study strategies, and practice problems.' },
+              { title: 'REF vs RREF — What Is the Difference?', href: '/guides/ref-vs-rref', desc: 'Row Echelon Form vs Reduced Row Echelon Form — conditions, worked examples, comparison table.' },
+              { title: 'Null Space of a Matrix', href: '/guides/null-space-matrix', desc: 'How to find the kernel using RREF. Free variables, basis vectors, rank-nullity theorem.' },
+              { title: 'RREF on TI-84 vs Online', href: '/guides/rref-calculator-ti84', desc: 'Step-by-step TI-84 rref( instructions and why online calculators give more accurate fractions.' },
             ].map(g => (
               <Link key={g.href} href={g.href} className="card p-5 hover:border-primary-100 hover:bg-primary-50 transition-colors group">
                 <h3 className="font-semibold text-slate-800 text-sm mb-1 group-hover:text-primary transition-colors flex items-center gap-1">
