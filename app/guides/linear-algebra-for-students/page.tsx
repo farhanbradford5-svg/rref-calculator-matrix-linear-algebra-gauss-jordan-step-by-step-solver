@@ -52,7 +52,7 @@ export default function LinearAlgebraForStudentsGuide() {
             Linear algebra combines two types of difficulty that rarely appear together in earlier math courses. First, there is computational difficulty — RREF requires many careful arithmetic steps, each of which can cascade into errors. Second, there is conceptual difficulty — abstract ideas like vector spaces, linear independence, and rank require new geometric intuition that takes time to develop.
           </p>
           <p>
-            The good news: the computational part is learnable through practice, and calculators like this one help you check your arithmetic so you can focus on understanding. The conceptual part clicks once you work through enough examples — it rarely comes from re-reading definitions alone.
+            The good news: the computational part is learnable through practice, and the <Link href="/" className="text-primary hover:underline">RREF calculator</Link> helps you check your arithmetic so you can focus on understanding. The conceptual part clicks once you work through enough examples — it rarely comes from re-reading definitions alone.
           </p>
         </section>
 
@@ -95,7 +95,7 @@ export default function LinearAlgebraForStudentsGuide() {
         <section>
           <h2>Study Strategies That Work</h2>
           <p><strong>Work problems to completion, not just to understanding.</strong> Reading a solution is much easier than producing one. The computational fluency required for exams only comes from doing problems start to finish, including the arithmetic.</p>
-          <p><strong>Do problems in order of difficulty.</strong> Start with 2×2 systems, then 3×3, then augmented matrices, then systems with infinitely many solutions or no solution. Each level builds on the last.</p>
+          <p><strong>Do problems in order of difficulty.</strong> Start with 2×2 systems, then 3×3, then augmented matrices, then systems with infinitely many solutions or no solution. Each level builds on the last. The <Link href="/guides/rref-step-by-step-tutorial" className="text-primary hover:underline">step-by-step tutorial</Link> works through complete examples at each difficulty level.</p>
           <p><strong>Use the calculator to check, not to replace computation.</strong> Enter the matrix, compute RREF by hand, then compare to this calculator. The goal is to develop accuracy in your hand computation, using the calculator as a feedback mechanism.</p>
           <p><strong>Draw pictures for 2D and 3D cases.</strong> Every 2×2 linear system is the intersection of two lines. Every 3×3 system is the intersection of three planes. These geometric pictures make abstract results (unique solution = point, infinite = line/plane, no solution = parallel) concrete and memorable.</p>
           <p><strong>Know the Invertible Matrix Theorem cold.</strong> This is a list of equivalent conditions for a square matrix to be invertible. In many courses, a third of exam problems reduce to checking one of these conditions and concluding the others. The conditions include: A is invertible ↔ det(A) ≠ 0 ↔ rank(A) = n ↔ Ax = 0 has only the trivial solution ↔ RREF(A) = I ↔ columns of A span ℝⁿ ↔ columns of A are linearly independent, and several more.</p>
@@ -116,7 +116,7 @@ export default function LinearAlgebraForStudentsGuide() {
           <p><strong>Stuck on a concept:</strong> Draw the 2D picture. Every abstract linear algebra concept has a geometric version. Span = set of reachable points. Linear independence = no redundant direction. Rank = dimension of the image. Null space = set of "collapsed" inputs. If you can visualize it in ℝ², you can generalize to ℝⁿ.</p>
           <p><strong>Stuck on an exam problem:</strong> Identify which theorem applies. Most linear algebra exam problems are applications of one of five key theorems (see below). Match the problem type to the theorem, apply it, and write the conclusion.</p>
           <p><strong>Stuck on proof-based problems:</strong> Check both directions for "if and only if" proofs. Use a specific small example to build intuition before attempting the general case. Look for opportunities to use the rank-nullity theorem — it connects everything.</p>
-          <p><strong>Stuck after studying for hours:</strong> Stop and return tomorrow. Linear algebra ideas genuinely need time to consolidate. Re-reading the same page for the fourth time rarely helps; working one new problem does.</p>
+          <p><strong>Stuck after studying for hours:</strong> Stop and return tomorrow. Linear algebra ideas genuinely need time to consolidate. Re-reading the same page for the fourth time rarely helps; working one new problem does. For answers to common questions, visit our <Link href="/faq" className="text-primary hover:underline">frequently asked questions</Link> page.</p>
         </section>
 
         <section>

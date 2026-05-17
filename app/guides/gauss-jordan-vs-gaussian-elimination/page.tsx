@@ -51,7 +51,7 @@ export default function GaussVsGaussJordanGuide() {
             <strong>Gaussian elimination</strong> transforms a matrix to Row Echelon Form (REF). It only eliminates entries <em>below</em> each pivot. To solve a system, back-substitution is required after the forward elimination pass.
           </p>
           <p>
-            <strong>Gauss-Jordan elimination</strong> continues beyond REF to Reduced Row Echelon Form (RREF). It eliminates entries both <em>above and below</em> each pivot. Solutions can be read directly from RREF — no back-substitution needed.
+            <strong>Gauss-Jordan elimination</strong> continues beyond REF to Reduced Row Echelon Form (RREF). It eliminates entries both <em>above and below</em> each pivot. Solutions can be read directly from RREF — try the <Link href="/" className="text-primary hover:underline">RREF calculator</Link> to see every row operation applied in sequence with no back-substitution needed.
           </p>
           <p>
             Both methods use the same three elementary row operations: row swap, row scaling, and row replacement. The difference is purely in how far the elimination is carried.
@@ -126,7 +126,7 @@ Eliminate above second pivot (R₁):
 [ 1   0    0  |  2  ]
 [ 0   1    0  |  3  ]
 [ 0   0    1  | -1  ]  ← RREF`}</pre></div>
-          <p>Read off immediately: x = 2, y = 3, z = −1. Same answer, no back-substitution needed.</p>
+          <p>Read off immediately: x = 2, y = 3, z = −1. Same answer, no back-substitution needed. For a complete walkthrough of each row operation in examples like this, see the <Link href="/guides/rref-step-by-step-tutorial" className="text-primary hover:underline">step-by-step RREF tutorial</Link>.</p>
         </section>
 
         <section>
@@ -135,7 +135,7 @@ Eliminate above second pivot (R₁):
             For an n×n system, Gaussian elimination requires O(n³/3) multiplications for the forward pass, then O(n²/2) for back-substitution. Gauss-Jordan requires O(n³/2) multiplications total — the back-elimination pass roughly doubles the forward-pass cost.
           </p>
           <p>
-            For a single solve, <strong>Gaussian elimination is faster by roughly a factor of 3/2</strong>. However, for finding matrix inverses (solving n systems simultaneously), Gauss-Jordan on [A|I] is natural and no slower than the alternatives.
+            For a single solve, <strong>Gaussian elimination is faster by roughly a factor of 3/2</strong>. However, for finding matrix inverses with the <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> (solving n systems simultaneously), Gauss-Jordan on [A|I] is natural and no slower than the alternatives.
           </p>
           <p>
             For small systems (2×2 to 6×6 as in this calculator), the difference is negligible. The pedagogical advantage of RREF — a unique, self-reading answer — outweighs the minor extra computation for educational use.
@@ -157,7 +157,7 @@ Eliminate above second pivot (R₁):
           <ul>
             <li>Finding the inverse of a matrix: Gauss-Jordan on [A|I] → [I|A⁻¹]</li>
             <li>Determining rank and null space: RREF clearly shows pivots and free variables</li>
-            <li>Solving many systems with the same matrix and different right-hand sides (combine into one augmented matrix)</li>
+            <li>Solving many systems with the same matrix and different right-hand sides — the <Link href="/matrix/augmented" className="text-primary hover:underline">augmented matrix calculator</Link> handles this with full step-by-step output</li>
             <li>Educational settings: RREF is unique, so there is one "right answer" to compare against</li>
             <li>Computer algebra systems: CAS use RREF as the canonical form</li>
           </ul>

@@ -70,7 +70,7 @@ export default function RREFTutorial() {
             <li><strong>Staircase pattern.</strong> Each pivot is strictly to the right of the pivot in the row above.</li>
             <li><strong>Zeros above AND below each pivot.</strong> This is what separates RREF from REF — all entries in a pivot column except the pivot itself are zero.</li>
           </ol>
-          <p>Every matrix has a unique RREF — no matter which sequence of row operations you use, you reach the same end state. (This is the uniqueness theorem for RREF, discussed in Strang's <em>Introduction to Linear Algebra</em>, §1.5.)</p>
+          <p>Every matrix has a unique RREF — no matter which sequence of row operations you use, you reach the same end state. (This is the uniqueness theorem for RREF, discussed in Strang's <em>Introduction to Linear Algebra</em>, §1.5.) New to the subject? The <Link href="/guides/linear-algebra-basics" className="text-primary hover:underline">linear algebra basics</Link> guide covers vectors, matrices, and the motivation for row reduction from scratch.</p>
         </section>
 
         <section id="example-2x2">
@@ -91,7 +91,7 @@ export default function RREFTutorial() {
           <p><strong>Step 4.</strong> Eliminate ABOVE this pivot: R₁ → R₁ − (7/4)R₂:</p>
           <div className="worked-example"><pre>{`[ 1  0 ]
 [ 0  1 ]`}</pre></div>
-          <p>RREF is the 2×2 identity matrix. Verification: A has full rank 2 and is invertible.</p>
+          <p>RREF is the 2×2 identity matrix. Verification: A has full rank 2 and is invertible — the <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> can confirm A⁻¹ exists and compute it step by step.</p>
         </section>
 
         <AdSlot id="tut-mid1" size="banner" />
@@ -262,7 +262,7 @@ x₃ = t   (free parameter)`}</pre></div>
             <li>Click "Calculate RREF" and compare your result to the calculator's RREF.</li>
             <li>If they differ, expand the steps panel and compare step-by-step to find where your row operation went wrong.</li>
           </ol>
-          <p>The calculator uses exact rational arithmetic, so even complex fraction arithmetic (like 7/4 subtracted from 3/2) is handled without rounding.</p>
+          <p>The calculator uses exact rational arithmetic, so even complex fraction arithmetic (like 7/4 subtracted from 3/2) is handled without rounding. Have more questions about the calculator's features? See the <Link href="/faq" className="text-primary hover:underline">FAQ page</Link>.</p>
         </section>
 
         <AdSlot id="tut-bottom" size="banner" />
