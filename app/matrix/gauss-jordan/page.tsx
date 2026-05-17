@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next';
+import Link from 'next/link';
 import RREFCalculator from '@/components/calculator/RREFCalculator';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
@@ -69,7 +70,7 @@ export default function GaussJordanPage() {
               <li><strong>Row replacement</strong>: add a multiple of one row to another: R_i → R_i + c·R_j</li>
             </ul>
             <p>
-              These operations preserve the solution set of the linear system (they produce row-equivalent matrices). The goal is a matrix in RREF, where every leading entry (pivot) is 1, all other entries in pivot columns are 0, and pivots step strictly right and down.
+              These operations preserve the solution set of the linear system (they produce row-equivalent matrices). The goal is a matrix in RREF, where every leading entry (pivot) is 1, all other entries in pivot columns are 0, and pivots step strictly right and down. The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> on this site uses this algorithm — enter any matrix to see every row operation applied in sequence.
             </p>
           </section>
 
@@ -82,7 +83,7 @@ export default function GaussJordanPage() {
               <strong>Gauss-Jordan elimination</strong> continues with back substitution built into the forward pass. After a pivot is made equal to 1, it is used to zero out entries both below and above it. The result (RREF) allows reading off the solution directly, with no separate back-substitution step.
             </p>
             <p>
-              For hand calculations, Gaussian elimination + back substitution is often faster. For computer implementation and pedagogical clarity, Gauss-Jordan to RREF is more systematic. For finding matrix inverses, Gauss-Jordan on [A|I] is the standard approach.
+              For hand calculations, Gaussian elimination + back substitution is often faster. For computer implementation and pedagogical clarity, Gauss-Jordan to RREF is more systematic. For finding matrix inverses, Gauss-Jordan on [A|I] is the standard approach. For a full side-by-side comparison of both methods, see our <Link href="/guides/gauss-jordan-vs-gaussian-elimination" className="text-primary hover:underline">Gauss-Jordan vs Gaussian elimination guide</Link>.
             </p>
           </section>
 
@@ -115,7 +116,7 @@ export default function GaussJordanPage() {
               <p>[ 0  1  0 | 3 ]</p>
               <p>[ 0  0  1 | −1 ]</p>
             </div>
-            <p>Solution: x = 2, y = 3, z = −1. The pivot in every column means a unique solution.</p>
+            <p>Solution: x = 2, y = 3, z = −1. The pivot in every column means a unique solution. For more worked examples with detailed row operation explanations, see the <Link href="/guides/rref-step-by-step-tutorial" className="text-primary hover:underline">RREF step-by-step tutorial</Link>.</p>
           </section>
 
           <section>
@@ -136,8 +137,8 @@ export default function GaussJordanPage() {
 
           <section>
             <h2>Applications of Gauss-Jordan Elimination</h2>
-            <p><strong>Solving linear systems.</strong> The primary application — transform [A|b] to [RREF(A)|c] and read off solutions directly.</p>
-            <p><strong>Matrix inverse.</strong> Apply Gauss-Jordan to [A|I]. If A is invertible, [A|I] reduces to [I|A⁻¹].</p>
+            <p><strong>Solving linear systems.</strong> The primary application — transform [A|b] to [RREF(A)|c] and read off solutions directly. See the <Link href="/guides/solving-linear-systems" className="text-primary hover:underline">solving linear systems guide</Link> for unique, infinite, and no-solution cases with worked examples.</p>
+            <p><strong>Matrix inverse.</strong> Apply Gauss-Jordan to [A|I]. If A is invertible, [A|I] reduces to [I|A⁻¹]. Use the <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> to perform this process with full step-by-step display.</p>
             <p><strong>Finding rank and null space.</strong> The number of pivots in RREF(A) equals rank(A). The null space basis comes from the free variable columns.</p>
             <p><strong>Determining linear independence.</strong> Place vectors as rows (or columns) of A. RREF immediately reveals whether they are linearly independent (no zero rows = independent) or dependent (zero rows = dependent).</p>
             <p><strong>Balancing chemical equations.</strong> Stoichiometry problems reduce to linear systems solvable by Gauss-Jordan.</p>

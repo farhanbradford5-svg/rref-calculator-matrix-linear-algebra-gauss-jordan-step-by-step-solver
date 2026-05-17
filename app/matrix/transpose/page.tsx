@@ -93,6 +93,9 @@ export default function TransposePage() {
               <li><strong>det(Aᵀ) = det(A)</strong></li>
               <li><strong>rank(Aᵀ) = rank(A)</strong></li>
             </ul>
+            <p>
+              The reversal property (AB)ᵀ = BᵀAᵀ connects transpose to <Link href="/matrix/multiply" className="text-primary hover:underline">matrix multiplication</Link> — the order of factors reverses just as it does for inverses. The equality det(Aᵀ) = det(A) means you can use the <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link> on either a matrix or its transpose and always get the same result.
+            </p>
           </section>
 
           <section>

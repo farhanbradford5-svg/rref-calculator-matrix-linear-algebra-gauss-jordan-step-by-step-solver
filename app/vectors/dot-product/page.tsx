@@ -134,14 +134,14 @@ export default function DotProductPage() {
               proj_v(u) = (u · v / v · v) · v
             </div>
             <p>
-              This is the component of u parallel to v. The remainder u − proj_v(u) is perpendicular to v. The Gram-Schmidt process uses this iteratively to produce an orthonormal basis from any linearly independent set of vectors.
+              This is the component of u parallel to v. The remainder u − proj_v(u) is perpendicular to v. The Gram-Schmidt process uses this iteratively to produce an orthonormal basis from any linearly independent set of vectors. The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> can first verify that your starting vectors are linearly independent before applying Gram-Schmidt.
             </p>
           </section>
 
           <section>
             <h2>Dot Product vs. Cross Product</h2>
             <p>
-              The dot product produces a <em>scalar</em>; the cross product produces a <em>vector</em> (and is only defined in 3D). The dot product measures alignment; the cross product measures perpendicularity and area.
+              The dot product produces a <em>scalar</em>; the <Link href="/vectors/cross-product" className="text-primary hover:underline">cross product</Link> produces a <em>vector</em> (and is only defined in 3D). The dot product measures alignment; the cross product measures perpendicularity and area.
             </p>
             <p>
               When u · v = 0, the vectors are orthogonal. When u × v = 0, the vectors are parallel. These are complementary tests: dot product for parallelism-like information, cross product for orientation information.
@@ -189,14 +189,14 @@ export default function DotProductPage() {
               <li><strong>Matrix space:</strong> ⟨A, B⟩ = trace(AᵀB) (the Frobenius inner product). Two matrices are "orthogonal" if their trace product is zero.</li>
             </ul>
             <p>
-              Orthogonality, projections, and Gram-Schmidt all generalize perfectly to any inner product space. This is why linear algebra methods apply to signal processing, numerical PDEs, quantum mechanics, and statistics — they all live in inner product spaces.
+              Orthogonality, projections, and Gram-Schmidt all generalize perfectly to any inner product space. This is why linear algebra methods apply to signal processing, numerical PDEs, quantum mechanics, and statistics — they all live in inner product spaces. For foundations, see our <Link href="/guides/linear-algebra-basics" className="text-primary hover:underline">linear algebra basics guide</Link>.
             </p>
           </section>
 
           <section>
             <h2>Dot Products in Machine Learning</h2>
             <p>
-              Modern machine learning is built on dot products. A single neuron computes a weighted sum of inputs — the dot product w · x + bias, where w is the weight vector. Training a deep network performs millions of such dot products per forward pass, which is why GPUs, optimized for parallel dot product computation (GEMM operations), are essential.
+              Modern machine learning is built on dot products. A single neuron computes a weighted sum of inputs — the dot product w · x + bias, where w is the weight vector. Training a deep network performs millions of such dot products per forward pass — in matrix form, each layer computes a <Link href="/matrix/multiply" className="text-primary hover:underline">matrix multiplication</Link> W·x. GPUs, optimized for parallel dot product computation (GEMM operations), are essential for this scale.
             </p>
             <p>
               <strong>Cosine similarity</strong> = (u · v)/(|u||v|) normalizes the dot product to measure directional alignment independent of magnitude. In natural language processing, word and sentence embeddings are compared by cosine similarity — documents discussing the same topic have embeddings pointing in roughly the same direction, regardless of document length.

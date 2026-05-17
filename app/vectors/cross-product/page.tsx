@@ -145,7 +145,7 @@ export default function CrossProductPage() {
               u · v = 0 means u and v are orthogonal. u × v = 0 means u and v are parallel (or one is zero). Together, they fully characterize the geometric relationship between vectors in 3D.
             </p>
             <p>
-              The identity |u × v|² + (u · v)² = |u|²|v|² (Lagrange identity) connects them: the sum of squared area and squared projection equals the product of squared magnitudes.
+              The identity |u × v|² + (u · v)² = |u|²|v|² (Lagrange identity) connects them: the sum of squared area and squared projection equals the product of squared magnitudes. Use the <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product calculator</Link> to compute u · v and verify orthogonality before computing the cross product. For magnitudes like |u × v| = √1750 = 5√70, the <Link href="/algebra/simplify-radicals" className="text-primary hover:underline">simplify radicals calculator</Link> reduces the result to simplified radical form.
             </p>
           </section>
 
@@ -219,7 +219,7 @@ export default function CrossProductPage() {
               The cross product formula is a formal determinant expansion — which is why a cross product that comes out as zero tells you the vectors are linearly dependent (they span a 1D subspace instead of 2D). More precisely: u × v = 0 if and only if u and v are parallel (proportional), which is exactly when the 2×3 matrix with rows u and v has rank 1.
             </p>
             <p>
-              This connection to determinants runs deep. The cross product is the unique (up to sign) bilinear, anti-symmetric, dimension-compatible operation in ℝ³. In higher dimensions, the analogous concept is the <em>exterior product</em> u ∧ v, which produces a bivector rather than a vector. The magnitude of the exterior product still gives the area of the parallelogram. The <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link> computes the scalar triple product and tests for coplanarity directly.
+              This connection to determinants runs deep. The cross product is the unique (up to sign) bilinear, anti-symmetric, dimension-compatible operation in ℝ³. In higher dimensions, the analogous concept is the <em>exterior product</em> u ∧ v, which produces a bivector rather than a vector. The magnitude of the exterior product still gives the area of the parallelogram. The <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link> computes the scalar triple product and tests for coplanarity directly. The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> can verify linear independence of the three vectors by checking their rank. For the broader linear algebra context, see our <Link href="/guides/linear-algebra-basics" className="text-primary hover:underline">linear algebra basics guide</Link>.
             </p>
           </section>
 

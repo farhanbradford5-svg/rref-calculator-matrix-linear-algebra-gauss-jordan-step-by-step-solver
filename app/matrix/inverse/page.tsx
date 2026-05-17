@@ -71,7 +71,7 @@ export default function InversePage() {
           <section>
             <h2>What Is a Matrix Inverse?</h2>
             <p>
-              Given a square matrix <strong>A</strong>, its inverse <strong>A⁻¹</strong> is the unique matrix satisfying A · A⁻¹ = A⁻¹ · A = I, where I is the identity matrix. An inverse exists if and only if A is <em>non-singular</em> — det(A) ≠ 0, equivalently the rows of A are linearly independent.
+              Given a square matrix <strong>A</strong>, its inverse <strong>A⁻¹</strong> is the unique matrix satisfying A · A⁻¹ = A⁻¹ · A = I, where I is the identity matrix. An inverse exists if and only if A is <em>non-singular</em> — det(A) ≠ 0 (check with the <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link>), equivalently the rows of A are linearly independent.
             </p>
             <p>
               The inverse reverses the linear transformation A applies. If A rotates vectors by 30°, then A⁻¹ rotates by −30°. If A scales a direction by factor k, then A⁻¹ scales it by 1/k. This makes matrix inversion central to solving linear systems, computing change-of-basis transformations, and reversing geometric operations in computer graphics.
@@ -89,7 +89,7 @@ export default function InversePage() {
           <section>
             <h2>How to Use This Matrix Inverse Calculator</h2>
             <p>
-              Select the matrix size (2×2, 3×3, or 4×4), enter each entry using Tab or arrow keys to navigate, then press <em>Find Inverse</em>. The calculator performs Gauss-Jordan elimination on the augmented matrix [A | I] and returns A⁻¹ with each row operation recorded. Click any step to expand it and see the full matrix state after that operation.
+              Select the matrix size (2×2, 3×3, or 4×4), enter each entry using Tab or arrow keys to navigate, then press <em>Find Inverse</em>. The calculator performs <Link href="/matrix/gauss-jordan" className="text-primary hover:underline">Gauss-Jordan elimination</Link> on the augmented matrix [A | I] and returns A⁻¹ with each row operation recorded. Click any step to expand it and see the full matrix state after that operation.
             </p>
             <p>
               Entries can be integers (3, −7) or fractions (3/4, −2/5). The calculator stores all values as exact rational numbers, so there is no rounding at any stage. For singular matrices, the calculator detects the failure condition and tells you exactly why no inverse exists.
@@ -147,9 +147,9 @@ export default function InversePage() {
           <section>
             <h2>Applications of Matrix Inversion</h2>
             <p>
-              Matrix inversion is closely related to Gauss-Jordan elimination — the same algorithm that computes RREF on the coefficient matrix is applied to [A|I] here. For the underlying theory of why this works, see our <Link href="/guides/gauss-jordan-vs-gaussian-elimination" className="text-primary hover:underline">Gauss-Jordan vs. Gaussian elimination guide</Link>. For a conceptual introduction to the linear algebra that makes inversion possible, see <Link href="/guides/linear-algebra-basics" className="text-primary hover:underline">linear algebra basics</Link>.
+              Matrix inversion is closely related to Gauss-Jordan elimination — the same algorithm that our <Link href="/" className="text-primary hover:underline">RREF calculator</Link> uses on the coefficient matrix is applied to [A|I] here. For the underlying theory of why this works, see our <Link href="/guides/gauss-jordan-vs-gaussian-elimination" className="text-primary hover:underline">Gauss-Jordan vs. Gaussian elimination guide</Link>. For a conceptual introduction to the linear algebra that makes inversion possible, see <Link href="/guides/linear-algebra-basics" className="text-primary hover:underline">linear algebra basics</Link>.
             </p>
-            <p><strong>Solving linear systems.</strong> For Ax = b with A invertible, x = A⁻¹b gives the unique solution. In practice, Gaussian elimination (LU decomposition) is preferred for large systems, but explicit inversion is convenient for small matrices.</p>
+            <p><strong>Solving linear systems.</strong> For Ax = b with A invertible, x = A⁻¹b gives the unique solution — see our <Link href="/guides/solving-linear-systems" className="text-primary hover:underline">solving linear systems guide</Link> for all three solution types. In practice, Gaussian elimination (LU decomposition) is preferred for large systems, but explicit inversion is convenient for small matrices.</p>
             <p><strong>Cryptography.</strong> The Hill cipher encrypts by multiplying a plaintext vector by an invertible matrix mod 26. Decryption requires the modular matrix inverse.</p>
             <p><strong>Computer graphics.</strong> Camera view matrices, rotation, scaling, and projection transformations all require inversion to move between coordinate spaces. OpenGL, DirectX, and WebGL pipelines use matrix inversion extensively.</p>
             <p><strong>Statistics.</strong> Ordinary least squares regression: β̂ = (XᵀX)⁻¹ Xᵀy. The existence of the OLS solution depends on XᵀX being invertible (full column rank of X).</p>

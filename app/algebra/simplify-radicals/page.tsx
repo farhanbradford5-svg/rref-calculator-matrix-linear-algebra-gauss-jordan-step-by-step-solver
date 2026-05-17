@@ -212,7 +212,7 @@ export default function SimplifyRadicalsPage() {
               The Gram-Schmidt process normalizes each vector by dividing by its norm. If the norm is 3√5, normalizing requires dividing by 3√5 — and rationalizing gives clean form. Use this simplified radical form calculator to simplify norms encountered during Gram-Schmidt, eigenvalue computation, or any other linear algebra procedure requiring exact square roots.
             </p>
             <p>
-              For related calculations, see our <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product calculator</Link> (for computing the norms v·v = |v|² before taking the square root) and the <Link href="/" className="text-primary hover:underline">RREF calculator</Link> for the matrix operations that generate these radical expressions.
+              For related calculations, see our <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product calculator</Link> (for computing the norms v·v = |v|² before taking the square root), the <Link href="/" className="text-primary hover:underline">RREF calculator</Link> for the matrix operations that generate these radical expressions, and the <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> when eigenvalue computations involve radicals in the characteristic polynomial.
             </p>
           </section>
 

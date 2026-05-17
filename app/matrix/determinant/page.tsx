@@ -82,7 +82,7 @@ export default function DeterminantPage() {
             </p>
             <p>Key determinant properties:</p>
             <ul>
-              <li><strong>det(AB) = det(A) · det(B)</strong> — multiplicativity</li>
+              <li><strong>det(AB) = det(A) · det(B)</strong> — multiplicativity (use the <Link href="/matrix/multiply" className="text-primary hover:underline">matrix multiplication calculator</Link> to form AB before computing its determinant)</li>
               <li><strong>det(Aᵀ) = det(A)</strong> — transpose preserves the determinant</li>
               <li><strong>det(A⁻¹) = 1/det(A)</strong></li>
               <li><strong>det(kA) = kⁿ det(A)</strong> for an n×n matrix scaled by k</li>

@@ -92,6 +92,9 @@ export default function MultiplyPage() {
               <li><strong>Transpose reversal</strong>: (AB)ᵀ = BᵀAᵀ</li>
               <li><strong>Inverse reversal</strong>: (AB)⁻¹ = B⁻¹A⁻¹</li>
             </ul>
+            <p>
+              The <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link> verifies the multiplicativity property det(AB) = det(A)·det(B), useful for checking whether a product is invertible. The <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> demonstrates the reversal rule (AB)⁻¹ = B⁻¹A⁻¹ on concrete examples. Each entry C[i][j] is the <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product</Link> of row i of A with column j of B.
+            </p>
           </section>
 
           <section>

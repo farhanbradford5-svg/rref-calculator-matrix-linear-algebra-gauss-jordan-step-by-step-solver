@@ -5,6 +5,7 @@ const CALCULATORS = [
   { label: 'Matrix Inverse', href: '/matrix/inverse' },
   { label: 'Determinant', href: '/matrix/determinant' },
   { label: 'Gauss-Jordan', href: '/matrix/gauss-jordan' },
+  { label: 'Augmented Matrix', href: '/matrix/augmented' },
   { label: 'Matrix Multiply', href: '/matrix/multiply' },
   { label: 'Transpose', href: '/matrix/transpose' },
   { label: 'Cross Product', href: '/vectors/cross-product' },
@@ -19,6 +20,9 @@ const GUIDES = [
   { label: 'RREF Tutorial', href: '/guides/rref-step-by-step-tutorial' },
   { label: 'Gauss-Jordan vs Gaussian', href: '/guides/gauss-jordan-vs-gaussian-elimination' },
   { label: 'Linear Algebra for Students', href: '/guides/linear-algebra-for-students' },
+  { label: 'REF vs RREF', href: '/guides/ref-vs-rref' },
+  { label: 'Null Space of a Matrix', href: '/guides/null-space-matrix' },
+  { label: 'RREF on TI-84', href: '/guides/rref-calculator-ti84' },
 ];
 
 const COMPANY = [

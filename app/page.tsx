@@ -243,6 +243,7 @@ const HUB_CALCULATORS = [
   { label: 'Matrix Inverse', href: '/matrix/inverse', desc: 'Find A⁻¹ with steps', ready: true },
   { label: 'Determinant', href: '/matrix/determinant', desc: 'Cofactor expansion', ready: true },
   { label: 'Gauss-Jordan', href: '/matrix/gauss-jordan', desc: 'Full elimination steps', ready: true },
+  { label: 'Augmented Matrix', href: '/matrix/augmented', desc: 'Solve Ax=b systems', ready: true },
   { label: 'Matrix Multiply', href: '/matrix/multiply', desc: 'A × B with dot products', ready: true },
   { label: 'Transpose', href: '/matrix/transpose', desc: 'Compute Aᵀ instantly', ready: true },
   { label: 'Cross Product', href: '/vectors/cross-product', desc: '3D vector u × v', ready: true },
@@ -375,7 +376,7 @@ export default function HomePage() {
       <section className="bg-surface py-14 border-t border-slate-100" id="tutorial">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-2">How to Use This RREF Calculator</h2>
-          <p className="text-slate-600 mb-8 text-[15px]">Three steps to get your exact RREF solution with full step-by-step explanation. For a complete walkthrough, see our <Link href="/guides/rref-step-by-step-tutorial" className="text-primary hover:underline">step-by-step RREF tutorial</Link>.</p>
+          <p className="text-slate-600 mb-8 text-[15px]">Three steps to get your exact RREF solution with full step-by-step explanation. For a complete walkthrough, see our <Link href="/guides/rref-step-by-step-tutorial" className="text-primary hover:underline">step-by-step RREF tutorial</Link>, or use the <Link href="/guides/matrix-operations-cheat-sheet" className="text-primary hover:underline">matrix operations cheat sheet</Link> as a quick reference.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
@@ -560,7 +561,7 @@ export default function HomePage() {
             <p>
               This approach is used in computer algebra systems (Mathematica, Maple, SymPy) for exactly this reason.
               For educational use — where students need to check their hand computation — exact answers are essential.
-              See our <Link href="/guides/linear-algebra-for-students" className="text-primary hover:underline">linear algebra for students guide</Link> for more tips on checking your work.
+              See our <Link href="/guides/linear-algebra-for-students" className="text-primary hover:underline">linear algebra for students guide</Link> for more tips on checking your work. For algebraic expressions involving square roots — such as eigenvalues and vector norms — use the <Link href="/algebra/simplify-radicals" className="text-primary hover:underline">simplify radicals calculator</Link> to get exact simplified form.
             </p>
           </div>
         </div>
@@ -581,10 +582,10 @@ export default function HomePage() {
                 { title: 'Finding Matrix Rank', desc: 'The rank of A equals the number of pivots in RREF(A). Rank determines the dimension of the column space (image) and row space — fundamental in linear algebra.' },
                 { title: 'Computing Matrix Inverses', desc: <>Apply Gauss-Jordan to [A|I]. If A is invertible, [A|I] reduces to [I|A⁻¹]. Use our <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse calculator</Link> to compute A⁻¹, or the <Link href="/matrix/determinant" className="text-primary hover:underline">determinant calculator</Link> to check invertibility.</> },
                 { title: 'Finding Null Space', desc: 'The null space of A is found by solving Ax = 0. RREF identifies free variables, which parameterize the null space. Nullity = n − rank (rank-nullity theorem).' },
-                { title: 'Checking Linear Independence', desc: 'Arrange vectors as rows or columns of a matrix. RREF reveals whether they are linearly independent (no zero rows = independent) or dependent.' },
+                { title: 'Checking Linear Independence', desc: <>Arrange vectors as rows or columns of a matrix. RREF reveals whether they are linearly independent (no zero rows = independent) or dependent. For vector projections and angle checks, see the <Link href="/vectors/dot-product" className="text-primary hover:underline">dot product calculator</Link>.</> },
                 { title: 'Basis for Column/Row Space', desc: 'Pivot columns of A correspond to a basis for the column space. Pivot rows of RREF(A) form a basis for the row space.' },
                 { title: 'Balancing Chemical Equations', desc: 'Stoichiometry problems reduce to linear systems. For example, balancing aC₂H₆ + bO₂ → cCO₂ + dH₂O becomes Ax = 0 solved by RREF.' },
-                { title: 'Computer Graphics', desc: 'Transformation matrices for 3D graphics require inversion (computed via Gauss-Jordan) and rank checking. RREF underlies the matrix math in OpenGL and DirectX.' },
+                { title: 'Computer Graphics', desc: <>Transformation matrices for 3D graphics require inversion (computed via Gauss-Jordan) and rank checking. RREF underlies the matrix math in OpenGL and DirectX. Surface normals use the <Link href="/vectors/cross-product" className="text-primary hover:underline">cross product calculator</Link>.</> },
               ].map(({ title, desc }) => (
                 <div key={title} className="card p-4">
                   <h3 className="font-semibold text-slate-800 text-sm mb-1">{title}</h3>
@@ -600,7 +601,7 @@ export default function HomePage() {
       <section className="bg-surface py-12 border-t border-slate-100" id="hub">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-slate-900 mb-1">All Calculators</h2>
-          <p className="text-sm text-slate-500 mb-6">9 calculators powered by the same exact rational arithmetic engine.</p>
+          <p className="text-sm text-slate-500 mb-6">10 calculators powered by the same exact rational arithmetic engine.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {HUB_CALCULATORS.map(c => (
               <Link key={c.label} href={c.href}
@@ -675,7 +676,7 @@ export default function HomePage() {
       <section className="bg-surface py-14 border-t border-slate-100" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>
-          <p className="text-slate-500 mb-8 text-sm">20 questions covering RREF, Gauss-Jordan, augmented matrices, and this calculator.</p>
+          <p className="text-slate-500 mb-8 text-sm">20 questions covering RREF, Gauss-Jordan, augmented matrices, and this calculator. For a full reference, see our <Link href="/faq" className="text-primary hover:underline">FAQ page</Link>.</p>
           <div className="space-y-3">
             {faqSchema.mainEntity.map((item, i) => (
               <details key={i} className="card p-5 group">
