@@ -10,9 +10,32 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://rrefmatrixcalc.com/guides/gauss-jordan-vs-gaussian-elimination' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Gauss-Jordan vs Gaussian Elimination', item: 'https://rrefmatrixcalc.com/guides/gauss-jordan-vs-gaussian-elimination' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is the difference between Gaussian and Gauss-Jordan elimination?', acceptedAnswer: { '@type': 'Answer', text: 'Gaussian elimination transforms a matrix to Row Echelon Form (REF), eliminating entries only below each pivot. Solving then requires back-substitution. Gauss-Jordan continues to RREF by also eliminating above each pivot and scaling pivots to 1 — the solution can be read directly without back-substitution.' } },
+    { '@type': 'Question', name: 'Which method is faster — Gaussian or Gauss-Jordan elimination?', acceptedAnswer: { '@type': 'Answer', text: 'For a single n×n system, Gaussian elimination plus back-substitution requires roughly n³/3 operations, while Gauss-Jordan requires n³/2 — making Gaussian about 50% faster. However, for small systems (2×2 to 6×6) the difference is negligible. For finding matrix inverses, Gauss-Jordan on [A|I] is the most natural approach.' } },
+    { '@type': 'Question', name: 'When should I use Gauss-Jordan elimination?', acceptedAnswer: { '@type': 'Answer', text: 'Use Gauss-Jordan when: finding the inverse of a matrix (apply to [A|I]), determining rank and null space (RREF clearly shows free variables), solving many systems with the same matrix but different right-hand sides, or in educational settings where the unique canonical RREF result makes verification straightforward.' } },
+  ],
+};
+
 export default function GaussVsGaussJordanGuide() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <main className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides' }, { label: 'Gauss-Jordan vs Gaussian' }]} />
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
         Gauss-Jordan vs. Gaussian Elimination
@@ -208,5 +231,6 @@ Eliminate above second pivot (R₁):
       </article>
       <RelatedCalculators picks={['/', '/matrix/gauss-jordan', '/matrix/inverse', '/matrix/determinant', '/guides/rref-step-by-step-tutorial']} />
     </main>
+    </>
   );
 }

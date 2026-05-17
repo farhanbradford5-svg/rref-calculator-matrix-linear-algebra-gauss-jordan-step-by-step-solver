@@ -33,11 +33,23 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is Gauss-Jordan the same as RREF?', acceptedAnswer: { '@type': 'Answer', text: 'Gauss-Jordan is the algorithm; RREF is the result. Performing Gauss-Jordan elimination on a matrix produces its reduced row echelon form. The two terms are closely related but describe different things: the process vs. the output.' } },
+    { '@type': 'Question', name: 'Is RREF unique?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — every matrix has exactly one RREF, regardless of which sequence of row operations was used to reach it. This uniqueness theorem means RREF is a canonical form: a fingerprint of the matrix\'s structure, independent of computation path.' } },
+    { '@type': 'Question', name: 'Does Gauss-Jordan work for non-square matrices?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Gauss-Jordan elimination works for any m×n matrix. The resulting RREF has at most min(m,n) pivots. For augmented matrices [A|b] with more equations than unknowns, the method still finds the solution or reveals any contradiction row.' } },
+    { '@type': 'Question', name: 'What are elementary row operations?', acceptedAnswer: { '@type': 'Answer', text: 'Three types: (1) swap two rows R_i ↔ R_j, (2) scale a row by a non-zero constant R_i → c·R_i, (3) add a multiple of one row to another R_i → R_i + c·R_j. Each corresponds to left-multiplying by an elementary matrix, and all preserve the solution set of the linear system.' } },
+  ],
+};
+
 export default function GaussJordanPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Matrix Calculators' }, { label: 'Gauss-Jordan' }]} />
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">

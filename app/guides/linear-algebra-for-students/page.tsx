@@ -10,9 +10,33 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://rrefmatrixcalc.com/guides/linear-algebra-for-students' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Linear Algebra for Students', item: 'https://rrefmatrixcalc.com/guides/linear-algebra-for-students' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is the most common mistake in row reduction?', acceptedAnswer: { '@type': 'Answer', text: 'The most frequent source of wrong answers is arithmetic errors in fraction multiplication during row operations. When computing R₃ → R₃ − (5/3)R₁, the multiplication of (5/3) by each entry must be exact — one wrong fraction propagates through all subsequent steps.' } },
+    { '@type': 'Question', name: 'How do I identify free vs. basic variables in RREF?', acceptedAnswer: { '@type': 'Answer', text: 'A pivot column (containing a leading 1) corresponds to a basic variable — its value is determined by the system. A non-pivot column has no leading 1 — the corresponding variable is free and can take any value. After row swaps, check the RREF result carefully to see which columns have pivots.' } },
+    { '@type': 'Question', name: 'What does a zero row mean in an augmented matrix RREF?', acceptedAnswer: { '@type': 'Answer', text: 'A row [0 0 ... 0 | 0] means the equation was redundant — it adds no information and you likely have infinitely many solutions. A "no solution" result only comes from [0 0 ... 0 | c] with c ≠ 0, which represents the impossible equation 0 = c.' } },
+    { '@type': 'Question', name: 'What is the Invertible Matrix Theorem?', acceptedAnswer: { '@type': 'Answer', text: 'For an n×n square matrix A, the following are all equivalent: A is invertible, det(A) ≠ 0, rank(A) = n, RREF(A) = I, Ax = 0 has only the trivial solution x = 0, Ax = b has a unique solution for every b, and the columns of A are linearly independent and span ℝⁿ.' } },
+  ],
+};
+
 export default function LinearAlgebraForStudentsGuide() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <main className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides' }, { label: 'Linear Algebra for Students' }]} />
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
         Linear Algebra for Students
@@ -139,5 +163,6 @@ export default function LinearAlgebraForStudentsGuide() {
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/guides/rref-step-by-step-tutorial']} />
     </main>
+    </>
   );
 }

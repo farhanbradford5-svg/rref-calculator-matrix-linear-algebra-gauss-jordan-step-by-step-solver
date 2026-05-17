@@ -10,9 +10,31 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://rrefmatrixcalc.com/guides/matrix-operations-cheat-sheet' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Matrix Operations Cheat Sheet', item: 'https://rrefmatrixcalc.com/guides/matrix-operations-cheat-sheet' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is matrix multiplication commutative?', acceptedAnswer: { '@type': 'Answer', text: 'No. In general, AB ≠ BA — matrix multiplication is not commutative. For example, A=[[1,2],[3,4]] and B=[[0,1],[1,0]] gives AB=[[2,1],[4,3]] but BA=[[3,4],[1,2]]. The exception: AB = BA when both matrices are diagonal, or one is a scalar multiple of the identity.' } },
+    { '@type': 'Question', name: 'How do I find the inverse of a matrix?', acceptedAnswer: { '@type': 'Answer', text: 'The inverse exists only when det(A) ≠ 0. For a 2×2 matrix [[a,b],[c,d]]: A⁻¹ = (1/(ad−bc))·[[d,−b],[−c,a]]. For larger matrices, apply Gauss-Jordan elimination to [A|I] — if the left half reduces to I, the right half is A⁻¹. Properties: (AB)⁻¹ = B⁻¹A⁻¹ and (Aᵀ)⁻¹ = (A⁻¹)ᵀ.' } },
+    { '@type': 'Question', name: 'What does the determinant tell you about a matrix?', acceptedAnswer: { '@type': 'Answer', text: 'The determinant is a scalar encoding volume scaling and invertibility. det(A) ≠ 0 if and only if A is invertible. Row ops affect det: swapping rows negates it, scaling a row by c multiplies it by c, adding a multiple of one row to another leaves it unchanged. For triangular matrices, det = product of diagonal entries.' } },
+  ],
+};
+
 export default function MatrixCheatSheet() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     <main className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides' }, { label: 'Matrix Cheat Sheet' }]} />
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">

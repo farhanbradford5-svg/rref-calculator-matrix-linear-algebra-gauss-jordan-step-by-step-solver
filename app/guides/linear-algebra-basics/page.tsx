@@ -20,10 +20,33 @@ const jsonLd = {
   dateModified: '2026-05-01',
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Linear Algebra Basics', item: 'https://rrefmatrixcalc.com/guides/linear-algebra-basics' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is linear algebra?', acceptedAnswer: { '@type': 'Answer', text: 'Linear algebra is the branch of mathematics concerned with vectors, vector spaces, and linear transformations — functions that preserve addition and scalar multiplication. Its core objects are matrices and vectors, and the central operation is solving systems of linear equations.' } },
+    { '@type': 'Question', name: 'What is Reduced Row Echelon Form (RREF)?', acceptedAnswer: { '@type': 'Answer', text: 'RREF is a canonical form for matrices reached by Gauss-Jordan elimination. Conditions: all-zero rows at the bottom, each leading entry (pivot) equals 1, pivots form a staircase pattern, and all entries above and below each pivot are zero. Every matrix has exactly one RREF.' } },
+    { '@type': 'Question', name: 'What is the rank-nullity theorem?', acceptedAnswer: { '@type': 'Answer', text: 'For any m×n matrix A: rank(A) + nullity(A) = n, where n is the number of columns. Rank is the number of pivot columns; nullity is the dimension of the null space (number of free variables). Together they always equal the total number of columns.' } },
+    { '@type': 'Question', name: 'How do I test if vectors are linearly independent?', acceptedAnswer: { '@type': 'Answer', text: 'Form a matrix with the vectors as columns and compute its RREF. If every column is a pivot column (rank equals the number of vectors), they are linearly independent. If any column has no pivot, the corresponding vector is a linear combination of the others — the set is linearly dependent.' } },
+  ],
+};
+
 export default function LinearAlgebraBasicsGuide() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <main className="max-w-4xl mx-auto px-4 py-8">
         <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/linear-algebra-basics' }, { label: 'Linear Algebra Basics' }]} />
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">

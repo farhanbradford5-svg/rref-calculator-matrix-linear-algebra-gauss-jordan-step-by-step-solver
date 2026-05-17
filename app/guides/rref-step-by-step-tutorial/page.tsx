@@ -11,9 +11,33 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://rrefmatrixcalc.com/guides/rref-step-by-step-tutorial' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'RREF Step-by-Step Tutorial', item: 'https://rrefmatrixcalc.com/guides/rref-step-by-step-tutorial' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What are the four RREF conditions?', acceptedAnswer: { '@type': 'Answer', text: 'A matrix is in RREF when all four hold: (1) all-zero rows are at the bottom, (2) the first non-zero entry in each non-zero row (the pivot) equals 1, (3) each pivot is strictly to the right of the pivot above it (staircase pattern), and (4) all entries above AND below each pivot are zero.' } },
+    { '@type': 'Question', name: 'What is a free variable in RREF?', acceptedAnswer: { '@type': 'Answer', text: 'A free variable corresponds to a column in RREF that has no pivot (no leading 1). That variable can take any real value — it is a parameter. Systems with free variables have infinitely many solutions, expressed as a parametric family where pivot variables depend on the free variables.' } },
+    { '@type': 'Question', name: 'What is the difference between REF and RREF?', acceptedAnswer: { '@type': 'Answer', text: 'Row Echelon Form (REF) only requires zeros below each pivot — entries above pivots can be anything. RREF additionally requires each pivot to equal 1 and all entries above each pivot to be zero. RREF is unique (one per matrix); REF is not unique.' } },
+    { '@type': 'Question', name: 'When should I use a TI-84 vs. an online RREF calculator?', acceptedAnswer: { '@type': 'Answer', text: 'Use the TI-84 on time-pressured exams where a calculator is permitted and you only need the final result. Use an online calculator when you need exact fractions (TI-84 uses decimals), step-by-step explanations, or when studying — the step-by-step output shows every row operation, far more valuable for learning.' } },
+  ],
+};
+
 export default function RREFTutorial() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <main className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides' }, { label: 'RREF Tutorial' }]} />
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
         RREF Step-by-Step Tutorial
@@ -245,5 +269,6 @@ x₃ = t   (free parameter)`}</pre></div>
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/guides/solving-linear-systems']} />
     </main>
+    </>
   );
 }

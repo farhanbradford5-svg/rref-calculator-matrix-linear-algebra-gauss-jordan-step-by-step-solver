@@ -679,7 +679,8 @@ export default function HomePage() {
       <section className="bg-surface py-14 border-t border-slate-100" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>
-          <p className="text-slate-500 mb-8 text-sm">20 questions covering RREF, Gauss-Jordan, augmented matrices, and this calculator. For a full reference, see our <Link href="/faq" className="text-primary hover:underline">FAQ page</Link>.</p>
+          <p className="text-slate-500 mb-2 text-sm">20 questions covering RREF, Gauss-Jordan, augmented matrices, and this calculator. For a full reference, see our <Link href="/faq" className="text-primary hover:underline">FAQ page</Link>.</p>
+          <p className="text-slate-500 mb-8 text-sm">Built by a team committed to exact mathematics — <Link href="/about" className="text-primary hover:underline">learn about our methodology</Link>.</p>
           <div className="space-y-3">
             {faqSchema.mainEntity.map((item, i) => (
               <details key={i} className="card p-5 group">

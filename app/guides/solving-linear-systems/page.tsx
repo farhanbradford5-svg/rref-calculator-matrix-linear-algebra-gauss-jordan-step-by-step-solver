@@ -10,9 +10,32 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://rrefmatrixcalc.com/guides/solving-linear-systems' },
 };
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'RREF Calculator', item: 'https://rrefmatrixcalc.com' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://rrefmatrixcalc.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Solving Linear Systems', item: 'https://rrefmatrixcalc.com/guides/solving-linear-systems' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What are the three possible outcomes of a linear system?', acceptedAnswer: { '@type': 'Answer', text: 'Every linear system has exactly one of three outcomes: (1) one unique solution — consistent and independent, every variable determined; (2) infinitely many solutions — consistent and dependent, at least one free variable; (3) no solution — inconsistent, a contradiction row [0 0 ... 0 | c≠0] appears in RREF.' } },
+    { '@type': 'Question', name: 'What is a homogeneous system?', acceptedAnswer: { '@type': 'Answer', text: 'A homogeneous system has the form Ax = 0 (all right-hand sides equal zero). It always has at least the trivial solution x = 0. If rank(A) < n (fewer pivots than unknowns), it has infinitely many solutions — the null space of A is non-trivial. Homogeneous systems arise when finding null spaces, eigenvectors, and testing linear independence.' } },
+    { '@type': 'Question', name: 'What is the fastest method for solving a linear system by hand?', acceptedAnswer: { '@type': 'Answer', text: 'For hand computation of a single system, Gaussian elimination plus back-substitution is roughly 30% faster than full Gauss-Jordan. However, Gauss-Jordan (RREF) is preferred when you need the canonical result for comparison, are finding rank or null space, or are solving multiple systems simultaneously with the same coefficient matrix.' } },
+  ],
+};
+
 export default function SolvingLinearSystemsGuide() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <main className="max-w-4xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Guides' }, { label: 'Solving Linear Systems' }]} />
       <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
         Solving Linear Systems
@@ -196,5 +219,6 @@ x - y  = 1`}</pre></div>
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/vectors/dot-product']} />
     </main>
+    </>
   );
 }
