@@ -53,14 +53,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? {
-    verification: {
-      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-      other: {
-        'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION || '',
-      },
-    }
-  } : {}),
+  verification: {
+    google: 'UYZzrQmFBFQ0lcd3veyxpw9uwf85Qhn3MsWQGm-4bUg',
+  },
 };
 
 const jsonLd = {
@@ -109,19 +104,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {process.env.NEXT_PUBLIC_GA4_ID && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA4_ID}',{page_path:window.location.pathname});`,
-              }}
-            />
-          </>
-        )}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-EK2SJH78ZH"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EK2SJH78ZH');`,
+          }}
+        />
       </head>
       <body>
         <ScrollToTop />
