@@ -12,6 +12,11 @@ import { EXAMPLE_MATRICES } from '@/lib/calculators/shared-types';
 import { computeRREF, matrixFromStrings, decodeMatrixFromUrl } from '@/lib/calculators/rref';
 import { Rational } from '@/lib/calculators/rational';
 
+const MODE_OPTIONS: { value: 'rref' | 'ref'; label: string; title: string }[] = [
+  { value: 'rref', label: 'RREF', title: 'Reduced row echelon form — pivots scaled to 1, zeros above and below each pivot' },
+  { value: 'ref', label: 'REF', title: 'Row echelon form — zeros below each pivot only, pivots left unscaled' },
+];
+
 const SIZE_PRESETS = [
   { label: '2×2', rows: 2, cols: 2 },
   { label: '2×3', rows: 2, cols: 3 },
@@ -46,6 +51,8 @@ export default function RREFCalculator() {
   const [result, setResult] = useState<RREFResult | null>(null);
   const [activeTab, setActiveTab] = useState<'steps' | 'solution'>('steps');
   const [verbose, setVerbose] = useState(true);
+  const [mode, setMode] = useState<'ref' | 'rref'>('rref');
+  const [resultMode, setResultMode] = useState<'ref' | 'rref'>('rref');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [showExamples, setShowExamples] = useState(false);
   const [isCalculating, setIsCalculating] = useState(false);
@@ -122,14 +129,26 @@ export default function RREFCalculator() {
     return !hasError;
   };
 
-  const calculate = useCallback(() => {
+  const calculate = useCallback((modeOverride?: 'ref' | 'rref') => {
     if (!validate()) return;
+    const activeMode = modeOverride ?? mode;
     setIsCalculating(true);
     setTimeout(() => {
       try {
         const matrix = matrixFromStrings(values);
-        const res = computeRREF(matrix, isAugmented);
+        // Rank and solution always come from the full RREF pass: they are invariant
+        // between REF and RREF, and deriving them from an unscaled REF matrix would
+        // be incorrect. REF mode only swaps in the REF matrix and REF step list.
+        const rrefRes = computeRREF(matrix, isAugmented);
+        const res =
+          activeMode === 'ref'
+            ? (() => {
+                const refRes = computeRREF(matrix, isAugmented, 'ref');
+                return { ...rrefRes, rrefMatrix: refRes.rrefMatrix, steps: refRes.steps };
+              })()
+            : rrefRes;
         setResult(res);
+        setResultMode(activeMode);
         setActiveTab('steps');
 
         const entry: HistoryEntry = {
@@ -152,7 +171,13 @@ export default function RREFCalculator() {
         setIsCalculating(false);
       }
     }, 10);
-  }, [values, rows, cols, isAugmented]);
+  }, [values, rows, cols, isAugmented, mode]);
+
+  const handleModeChange = (next: 'ref' | 'rref') => {
+    if (next === mode) return;
+    setMode(next);
+    if (result) calculate(next);
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -200,12 +225,33 @@ export default function RREFCalculator() {
   return (
     <div id="calculator" className="space-y-6">
       <div aria-live="polite" aria-atomic="true" className="sr-only">
-        {result ? `RREF computed: ${result.steps.length} step${result.steps.length !== 1 ? 's' : ''}, rank ${result.rank}` : ''}
+        {result ? `${resultMode === 'ref' ? 'REF' : 'RREF'} computed: ${result.steps.length} step${result.steps.length !== 1 ? 's' : ''}, rank ${result.rank}` : ''}
       </div>
       <div className="card p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-5">
           <h2 className="text-lg font-semibold text-slate-800">Matrix Input</h2>
           <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
+              <span className="text-sm text-slate-600 font-medium">Form:</span>
+              <div className="flex items-center gap-1">
+                {MODE_OPTIONS.map(o => (
+                  <button
+                    key={o.value}
+                    onClick={() => handleModeChange(o.value)}
+                    aria-pressed={mode === o.value}
+                    title={o.title}
+                    className={clsx(
+                      'px-2.5 py-1 rounded-md text-xs font-medium border transition-colors',
+                      mode === o.value
+                        ? 'bg-primary text-white border-primary'
+                        : 'bg-white text-slate-600 border-slate-200 hover:border-primary hover:text-primary'
+                    )}
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <label className="flex items-center gap-2 cursor-pointer select-none">
               <span className="text-sm text-slate-600 font-medium">Augmented</span>
               <button
@@ -285,12 +331,12 @@ export default function RREFCalculator() {
 
         <div className="flex flex-wrap gap-2">
           <button
-            onClick={calculate}
+            onClick={() => calculate()}
             disabled={isCalculating}
             className="btn-primary flex items-center gap-2"
           >
             <Play size={16} />
-            {isCalculating ? 'Calculating...' : 'Calculate RREF'}
+            {isCalculating ? 'Calculating...' : `Calculate ${mode === 'ref' ? 'REF' : 'RREF'}`}
           </button>
 
           <button onClick={handleRandom} className="btn-secondary flex items-center gap-2">
@@ -380,9 +426,9 @@ export default function RREFCalculator() {
 
           <div>
             {activeTab === 'steps' ? (
-              <StepList steps={result.steps} verbose={verbose} />
+              <StepList steps={result.steps} verbose={verbose} mode={resultMode} />
             ) : (
-              <SolutionPanel result={result} />
+              <SolutionPanel result={result} mode={resultMode} />
             )}
           </div>
         </div>

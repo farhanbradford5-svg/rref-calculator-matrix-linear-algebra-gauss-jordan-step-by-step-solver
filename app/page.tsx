@@ -7,7 +7,7 @@ import { CheckCircle, Zap, BookOpen, Users, ArrowRight } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'RREF Calculator — Reduced Row Echelon Form with Step-by-Step Solutions',
   description:
-    'Free online RREF calculator. Solve any matrix up to 6×6, see every Gauss-Jordan elimination step with full explanations, get exact fraction answers. No sign-up. Updated May 2026.',
+    'Free online RREF calculator. Solve any matrix up to 6×6, see every Gauss-Jordan elimination step with full explanations, get exact fraction answers. No sign-up. Updated September 2026.',
   alternates: {
     canonical: 'https://rrefmatrixcalc.com',
   },
@@ -270,11 +270,11 @@ export default function HomePage() {
               with Step-by-Step Solutions
             </h1>
             <p className="text-xs text-slate-400 mt-1 mb-4">
-              Last updated: May 2026 · Reviewed for accuracy · Free, no sign-up
+              Last updated: September 2026 · Reviewed for accuracy · Free, no sign-up
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
               Free online RREF calculator. Solve any matrix size (2×2 to 6×6), see every Gauss-Jordan elimination step explained in plain English, get exact fraction answers.{' '}
-              <strong>No sign-up. Updated May 2026.</strong>{' '}
+              <strong>No sign-up. Updated September 2026.</strong>{' '}
               Every calculation shows the complete Gauss-Jordan elimination process — use it as an rref calculator with steps to check your own work or understand each row operation.
             </p>
           </div>

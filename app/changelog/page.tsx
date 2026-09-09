@@ -8,6 +8,14 @@ export const metadata: Metadata = {
 
 const CHANGELOG = [
   {
+    date: 'September 2026',
+    version: 'v2.1',
+    changes: [
+      'Added REF mode to the RREF calculator: a Form toggle switches between full Reduced Row Echelon Form (default) and Row Echelon Form, which stops after forward elimination with pivots left unscaled',
+      'Updated the REF vs RREF guide to document the new REF mode',
+    ],
+  },
+  {
     date: 'May 2026',
     version: 'v2.0',
     changes: [

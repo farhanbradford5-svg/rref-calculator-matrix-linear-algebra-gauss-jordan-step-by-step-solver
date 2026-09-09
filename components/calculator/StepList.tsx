@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 interface StepListProps {
   steps: Step[];
   verbose: boolean;
+  mode?: 'ref' | 'rref';
 }
 
 const STEP_ICONS = {
@@ -25,7 +26,7 @@ const STEP_COLORS = {
   info: 'border-l-slate-300 bg-slate-50',
 };
 
-export default function StepList({ steps, verbose }: StepListProps) {
+export default function StepList({ steps, verbose, mode = 'rref' }: StepListProps) {
   const [expanded, setExpanded] = useState<Set<number>>(new Set([0]));
 
   const toggle = (i: number) =>
@@ -42,7 +43,7 @@ export default function StepList({ steps, verbose }: StepListProps) {
   if (steps.length === 0) {
     return (
       <div className="text-center py-8 text-slate-400 text-sm">
-        Matrix is already in RREF — no steps needed.
+        Matrix is already in {mode === 'ref' ? 'REF' : 'RREF'} — no steps needed.
       </div>
     );
   }

@@ -35,7 +35,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'What is the difference between REF and RREF?', acceptedAnswer: { '@type': 'Answer', text: 'Both require zero rows at the bottom, a staircase pattern of leading entries, and zeros below each pivot. RREF additionally requires each pivot to equal exactly 1, and all entries above each pivot to also be 0. RREF is unique; REF is not.' } },
     { '@type': 'Question', name: 'Is RREF unique?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every matrix has exactly one RREF, regardless of which sequence of row operations was used to reach it. REF is not unique — many different upper-triangular matrices can be REFs of the same matrix.' } },
     { '@type': 'Question', name: 'When should I use REF instead of RREF?', acceptedAnswer: { '@type': 'Answer', text: 'REF is often faster by hand because you skip back-elimination above pivots. It is typically used with back substitution when you only need the solution to Ax = b, not the solution structure or rank-related information that RREF provides more directly.' } },
-    { '@type': 'Question', name: 'Does the RREF calculator compute REF or RREF?', acceptedAnswer: { '@type': 'Answer', text: 'The calculator always computes the full RREF (Reduced Row Echelon Form). It performs Gauss-Jordan elimination — which zeros out entries both below and above each pivot — not just Gaussian elimination (which stops at REF).' } },
+    { '@type': 'Question', name: 'Does the RREF calculator compute REF or RREF?', acceptedAnswer: { '@type': 'Answer', text: 'Both. The calculator computes the full RREF (Reduced Row Echelon Form) by default using Gauss-Jordan elimination, which zeros out entries both below and above each pivot. A REF/RREF toggle also lets you stop at Row Echelon Form instead, showing only the forward-elimination steps, with zeros below each pivot and pivots left unscaled. The underlying distinction is unchanged: RREF requires every pivot to equal 1 with zeros above it and is unique for any given matrix, while REF is not unique.' } },
   ],
 };
 
@@ -50,10 +50,10 @@ export default function RefVsRrefGuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           REF vs RREF — Row Echelon Form vs Reduced Row Echelon Form
         </h1>
-        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated September 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           The difference between REF and RREF is simple but critical. This guide explains the exact conditions for each, why RREF is unique while REF is not, and when to use each form.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated September 2026 · Reviewed by our math editorial team</span>
         </p>
 
         <article className="prose-content mt-8 space-y-10">
@@ -219,10 +219,10 @@ export default function RefVsRrefGuidePage() {
           <section>
             <h2>Is There an Online REF Calculator?</h2>
             <p>
-              Most online matrix calculators — including this one — compute RREF rather than REF, because RREF is more useful and unique. To get a REF, you can stop the Gauss-Jordan algorithm partway through: once you have zeros below each pivot (Gaussian elimination complete), stop before back-eliminating above pivots and before scaling pivots to 1.
+              Yes — this one does it natively. The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> has a <strong>Form</strong> toggle directly above the matrix input. Leave it on <strong>RREF</strong> for the full reduction, or switch it to <strong>REF</strong> and the calculator stops at Row Echelon Form instead: it performs only the forward-elimination operations, leaves each pivot unscaled, and produces zeros below the pivots with the entries above them untouched. The step-by-step list updates to match, showing just the operations needed to reach that point. RREF stays the default, so nothing changes unless you pick REF.
             </p>
             <p>
-              The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> shows every row operation. If you want a specific REF, you can read off the intermediate matrix state after forward elimination (zeros below all pivots) and before back elimination. Look for the state where the matrix first achieves upper triangular form.
+              It is still worth understanding what that stopping point means, especially if you are working a problem by hand. REF is the state you reach once Gaussian elimination has cleared every entry below each pivot — but before you back-eliminate the entries above those pivots, and before you scale each pivot to exactly 1. Those two remaining operations are precisely what turn an REF into the RREF. Because you can halt at different points and scale rows differently on the way there, any given matrix has many valid REFs but only one RREF.
             </p>
           </section>
 
@@ -235,7 +235,7 @@ export default function RefVsRrefGuidePage() {
                 { q: 'What is the difference between REF and RREF?', a: 'REF: zero rows at bottom, staircase pivots, zeros below pivots. RREF: all of REF plus pivots = 1 and zeros above pivots. REF is not unique; RREF is unique.' },
                 { q: 'Is RREF unique?', a: 'Yes. Every matrix has exactly one RREF. This is the RREF uniqueness theorem. REF is not unique — different elimination sequences produce different REFs of the same matrix.' },
                 { q: 'When should I use REF instead of RREF?', a: 'REF is faster by hand and sufficient for solving Ax = b with back substitution or for computing determinants. RREF is needed for direct solution reading, matrix inversion, null space computation, and canonical analysis.' },
-                { q: 'Does the RREF calculator show REF?', a: 'The calculator computes the full RREF. You can see the intermediate REF state by examining the step where forward elimination finishes — look for the first state where all entries below pivots are zero but before back-elimination above them begins.' },
+                { q: 'Does the RREF calculator show REF?', a: 'Yes. The calculator computes the full RREF by default, and the Form toggle above the matrix input switches it to REF — stopping after forward elimination, with zeros below each pivot and pivots left unscaled. The step-by-step list updates to show only the operations needed for whichever form you pick.' },
               ].map(({ q, a }) => (
                 <div key={q} className="card p-4">
                   <h3 className="font-semibold text-slate-800 mb-1">{q}</h3>

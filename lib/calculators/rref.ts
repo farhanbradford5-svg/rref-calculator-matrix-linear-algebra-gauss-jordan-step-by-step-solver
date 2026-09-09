@@ -38,7 +38,8 @@ function explainEliminate(targetRow: number, sourceRow: number, factor: Rational
 
 export function computeRREF(
   inputMatrix: Matrix,
-  isAugmented: boolean
+  isAugmented: boolean,
+  mode: 'ref' | 'rref' = 'rref'
 ): RREFResult {
   const rows = inputMatrix.length;
   const cols = rows > 0 ? inputMatrix[0].length : 0;
@@ -99,7 +100,7 @@ export function computeRREF(
 
     const pivotVal = matrix[pivotRow][col];
 
-    if (!pivotVal.isOne()) {
+    if (mode === 'rref' && !pivotVal.isOne()) {
       const scalar = Rational.ONE.div(pivotVal);
       matrix[pivotRow] = matrix[pivotRow].map(v => v.mul(scalar));
       addStep(
@@ -115,10 +116,13 @@ export function computeRREF(
 
     pivotColumns.push(col);
 
-    for (let r = 0; r < rows; r++) {
+    for (let r = mode === 'ref' ? pivotRow + 1 : 0; r < rows; r++) {
       if (r === pivotRow) continue;
-      const factor = matrix[r][col];
-      if (factor.isZero()) continue;
+      const rawFactor = matrix[r][col];
+      if (rawFactor.isZero()) continue;
+      const factor = mode === 'ref'
+        ? rawFactor.div(matrix[pivotRow][col])
+        : rawFactor;
       matrix[r] = matrix[r].map((v, j) =>
         v.sub(factor.mul(matrix[pivotRow][j]))
       );

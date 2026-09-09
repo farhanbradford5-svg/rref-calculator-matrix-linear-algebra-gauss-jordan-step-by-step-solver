@@ -7,17 +7,19 @@ import { clsx } from 'clsx';
 
 interface SolutionPanelProps {
   result: RREFResult;
+  mode?: 'ref' | 'rref';
 }
 
-export default function SolutionPanel({ result }: SolutionPanelProps) {
+export default function SolutionPanel({ result, mode = 'rref' }: SolutionPanelProps) {
   const { solution, rrefMatrix, rank, isAugmented, cols, rows } = result;
+  const formLabel = mode === 'ref' ? 'REF' : 'RREF';
 
   return (
     <div className="space-y-6">
       <div className="card p-5">
         <h3 className="text-base font-semibold text-slate-800 mb-4 flex items-center gap-2">
           <span className="w-6 h-6 rounded bg-primary text-white text-xs flex items-center justify-center font-bold">R</span>
-          RREF Result
+          {formLabel} Result
         </h3>
         <div className="overflow-x-auto">
           <MatrixDisplay
@@ -112,7 +114,7 @@ export default function SolutionPanel({ result }: SolutionPanelProps) {
         <div className="card p-5 bg-surface">
           <h3 className="text-sm font-semibold text-slate-700 mb-2">About This Result</h3>
           <p className="text-sm text-slate-600">
-            This is a non-augmented matrix reduced to RREF. The rank is {rank}, meaning there are{' '}
+            This is a non-augmented matrix reduced to {formLabel}. The rank is {rank}, meaning there are{' '}
             {rank} linearly independent rows. To solve a system of equations, toggle{' '}
             <strong>Augmented Matrix</strong> mode and include your constants as the last column.
           </p>
