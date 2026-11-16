@@ -389,7 +389,12 @@ export default function FAQPage() {
           The 30 most common questions about RREF, matrix operations, vectors, and how this
           calculator works.
         </p>
-        <p className="text-xs text-slate-400 mb-8">Updated May 2026 · Reviewed by our math editorial team</p>
+        <p className="text-xs text-slate-400 mb-8">Updated November 2026 · Maintained by Muhammad Farhan</p>
+
+        <p className="text-sm text-slate-600 mb-6">
+          Looking for a tool rather than an answer? Newer calculators cover the{' '}
+          <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form</Link>, <Link href="/algebra/system-of-equations" className="text-primary hover:underline">systems of equations</Link>, <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalues</Link>, <Link href="/matrix/null-space" className="text-primary hover:underline">null space</Link> and <Link href="/matrix/cramers-rule" className="text-primary hover:underline">Cramer's rule</Link>.
+        </p>
 
         <AdSlot id="faq-top" size="leaderboard" />
 

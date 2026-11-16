@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Gauss-Jordan Elimination Calculator — Step-by-Step with Full Explanation',
+  title: { absolute: 'Gauss-Jordan Elimination Calculator with Steps' },
   description: 'Gauss-Jordan elimination with every row operation explained. Exact fractions, augmented matrix support, solve linear systems. Free, no sign-up.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/matrix/gauss-jordan' },
 };
@@ -57,7 +58,7 @@ export default function GaussJordanPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Full Gauss-Jordan elimination to reduced row echelon form. Every row operation named, every matrix state shown.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <RREFCalculator />
         <AdSlot id="gj-after-calc" size="leaderboard" />
@@ -178,6 +179,16 @@ export default function GaussJordanPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Stopping Early: Row Echelon Form and Gaussian Elimination</h2>
+            <p>
+              Gauss-Jordan elimination is forward elimination followed by a backward pass. If your course only asks for the forward half, the <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form calculator</Link> stops there and leaves the pivots unscaled.
+            </p>
+            <p>
+              To solve a system that way and finish with back substitution, use the <Link href="/matrix/gaussian-elimination" className="text-primary hover:underline">Gaussian elimination calculator</Link>. Both tools use the same exact-fraction engine as this page, so the pivot positions always agree. On any of them, the Paste Matrix button fills the grid from rows copied out of a spreadsheet or PDF.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/gauss-jordan" picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/multiply', '/vectors/dot-product']} />

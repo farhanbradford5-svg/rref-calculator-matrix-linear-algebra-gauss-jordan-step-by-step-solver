@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Dot Product Calculator — n-Dimensional u · v with Steps',
+  title: { absolute: 'Dot Product Calculator — Vector Dot Product (u · v) with Steps' },
   description: 'Calculate the dot product of two vectors in any dimension. See each term, exact fractions, orthogonality check. Free, no sign-up required.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/vectors/dot-product' },
 };
@@ -61,7 +62,7 @@ export default function DotProductPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Compute <strong>u · v</strong> for vectors in any dimension. Every term shown, orthogonality detected automatically.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <DotProductCalculator />
         <AdSlot id="dot-after-calc" size="leaderboard" />
@@ -231,6 +232,16 @@ export default function DotProductPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Orthogonality in Matrix Problems</h2>
+            <p>
+              A dot product of 0 means two vectors are perpendicular, and that fact shows up throughout linear algebra. Every vector in the <Link href="/matrix/null-space" className="text-primary hover:underline">null space</Link> of A has dot product 0 with every row of A. Use this calculator to confirm a null space basis vector against each row.
+            </p>
+            <p>
+              For a symmetric matrix, eigenvectors that belong to different eigenvalues are always perpendicular. Compute them with the <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link>, then check that their dot product here is 0.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/vectors/dot-product" picks={['/', '/vectors/cross-product', '/matrix/multiply', '/matrix/transpose', '/matrix/inverse']} />

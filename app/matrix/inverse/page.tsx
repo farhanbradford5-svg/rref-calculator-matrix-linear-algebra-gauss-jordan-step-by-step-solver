@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Matrix Inverse Calculator — Step-by-Step A⁻¹ with Exact Fractions',
+  title: { absolute: 'Inverse Matrix Calculator — Matrix Inverse (A⁻¹) with Steps' },
   description: 'Find the inverse of any square matrix with exact fraction arithmetic. Full Gauss-Jordan steps shown. Free, no sign-up. 2×2 to 6×6 matrices supported.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/matrix/inverse' },
 };
@@ -57,7 +58,7 @@ export default function InversePage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Find <strong>A⁻¹</strong> for any square matrix. Every Gauss-Jordan step shown, exact fraction arithmetic throughout.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <InverseCalculator />
         <AdSlot id="inverse-after-calc" size="leaderboard" />
@@ -178,6 +179,16 @@ export default function InversePage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Four Equivalent Tests for Invertibility</h2>
+            <p>
+              A square matrix A has an inverse exactly when any one of these holds, and each can be checked with a different tool: its <Link href="/matrix/determinant" className="text-primary hover:underline">determinant</Link> is not zero; its RREF is the identity matrix; its <Link href="/matrix/null-space" className="text-primary hover:underline">null space</Link> contains only the zero vector; and 0 is not one of its <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalues</Link>.
+            </p>
+            <p>
+              Once you have A⁻¹, verify it by multiplying: A · A⁻¹ must equal the identity. The <Link href="/matrix/multiply" className="text-primary hover:underline">matrix multiplication calculator</Link> shows that product entry by entry. If you only need the solution of Ax = b for one b, solving the system directly with the <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link> is less work than inverting A.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/inverse" picks={['/', '/matrix/determinant', '/matrix/gauss-jordan', '/matrix/multiply', '/vectors/dot-product']} />

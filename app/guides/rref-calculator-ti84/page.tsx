@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import { SITE_URL, LAST_UPDATED, articleAuthor } from '@/data/site';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'RREF on TI-84 Calculator vs Online — Step-by-Step Comparison',
@@ -13,6 +15,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
+  author: articleAuthor,
+  publisher: { '@type': 'Organization', name: 'RREF Calculator', url: SITE_URL },
+  dateModified: LAST_UPDATED.iso,
   headline: 'RREF on TI-84 vs Online RREF Calculator: Complete Comparison',
   description: 'How to compute RREF on a TI-84 graphing calculator and why online calculators with exact rational arithmetic give more accurate results for fraction inputs.',
   url: 'https://rrefmatrixcalc.com/guides/rref-calculator-ti84',
@@ -49,10 +54,10 @@ export default function RREFTi84GuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           RREF on TI-84 vs Online RREF Calculator
         </h1>
-        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated November 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           How to use the TI-84's rref( function, why it sometimes gives wrong-looking answers with fractions, and when an online calculator is the better choice.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
 
         <article className="prose-content mt-8 space-y-10">
@@ -197,6 +202,16 @@ export default function RREFTi84GuidePage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>What About ref( on the TI-84?</h2>
+            <p>
+              The TI-84 also has a <code>ref(</code> command in the same MATRIX → MATH menu. It returns one particular row echelon form with leading 1s. Because row echelon form is not unique, that output can look different from a correct hand answer or from a textbook key.
+            </p>
+            <p>
+              The <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form calculator</Link> on this site shows the row operations that produce its echelon form, which the TI-84 does not, and keeps every entry as an exact fraction.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/guides/rref-calculator-ti84" picks={['/', '/guides/rref-step-by-step-tutorial', '/matrix/gauss-jordan', '/guides/gauss-jordan-vs-gaussian-elimination', '/matrix/augmented']} />

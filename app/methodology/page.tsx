@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Methodology — How the RREF Calculator Works | Exact Fraction Arithmetic',
@@ -12,7 +13,7 @@ export default function MethodologyPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Methodology' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Methodology</h1>
-      <p className="text-slate-500 mb-8">How our calculators work, and what they guarantee. Last updated: May 2026.</p>
+      <p className="text-slate-500 mb-8">How our calculators work, and what they guarantee. Last updated: November 2026.</p>
 
       <article className="prose-content space-y-8">
         <section>
@@ -108,6 +109,16 @@ export default function MethodologyPage() {
             The rational arithmetic library, the Gauss-Jordan algorithm, and all calculator components are implemented in TypeScript with no external math libraries. The implementation is deliberately straightforward so the algorithm matches what you would compute by hand (the same sequence of operations, represented in the same fractions you would write down).
           </p>
         </section>
+        <section>
+          <h2>Methods Used by the Newer Calculators</h2>
+          <p>
+            <strong>Eigenvalues.</strong> The characteristic polynomial is computed exactly with the Faddeev–LeVerrier recurrence on rational numbers. Rational roots are found with the rational root theorem and divided out. A remaining quadratic factor is solved with the quadratic formula and left in exact radical form. Only an irreducible factor of degree three or higher is solved numerically, and those results are marked with ≈.
+          </p>
+          <p>
+            <strong>Null space, rank and Cramer&apos;s rule.</strong> The null space basis is read from the exact RREF, one vector per free column. Cramer&apos;s rule evaluates each determinant by exact cofactor expansion and divides as fractions, so no rounding occurs at any stage.
+          </p>
+        </section>
+        <UpdatedNote className="mt-6" />
       </article>
     </main>
   );

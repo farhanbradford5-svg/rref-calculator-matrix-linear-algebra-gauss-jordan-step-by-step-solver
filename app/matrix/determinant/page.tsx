@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Determinant Calculator — Step-by-Step Cofactor Expansion',
+  title: { absolute: 'Determinant Calculator — Matrix Determinant with Steps' },
   description: 'Calculate any matrix determinant with full cofactor expansion steps. Exact rational arithmetic. 2×2 to 5×5 matrices. Free, no sign-up required.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/matrix/determinant' },
 };
@@ -61,7 +62,7 @@ export default function DeterminantPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Compute det(A) for any square matrix with full cofactor expansion shown at every step.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <DeterminantCalculator />
         <AdSlot id="det-after-calc" size="leaderboard" />
@@ -247,6 +248,19 @@ export default function DeterminantPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Where the Determinant Is Used Next</h2>
+            <p>
+              <strong>Solving systems.</strong> <Link href="/matrix/cramers-rule" className="text-primary hover:underline">Cramer's rule</Link> writes each unknown of a square system as a ratio of two determinants, and only works when det(A) ≠ 0.
+            </p>
+            <p>
+              <strong>Eigenvalues.</strong> The eigenvalues of A are the roots of det(A − λI) = 0. The <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link> builds that polynomial for you, and the product of the eigenvalues always equals det(A).
+            </p>
+            <p>
+              <strong>A faster route for large matrices.</strong> Reduce A to <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form</Link> using only row replacements and swaps. The determinant is the product of the pivots, with the sign flipped once per swap. For a 5×5 matrix this is far less work than cofactor expansion.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/determinant" picks={['/', '/matrix/inverse', '/matrix/gauss-jordan', '/matrix/multiply', '/vectors/dot-product']} />

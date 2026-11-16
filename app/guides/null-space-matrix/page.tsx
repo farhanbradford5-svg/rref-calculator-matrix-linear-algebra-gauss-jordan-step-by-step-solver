@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import { SITE_URL, LAST_UPDATED, articleAuthor } from '@/data/site';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Null Space of a Matrix — How to Find It Using RREF',
@@ -13,6 +15,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
+  author: articleAuthor,
+  publisher: { '@type': 'Organization', name: 'RREF Calculator', url: SITE_URL },
+  dateModified: LAST_UPDATED.iso,
   headline: 'Null Space of a Matrix: How to Find It Using RREF',
   description: 'A complete guide to computing the null space (kernel) of any matrix using reduced row echelon form, with worked examples and the rank-nullity theorem.',
   url: 'https://rrefmatrixcalc.com/guides/null-space-matrix',
@@ -50,10 +55,10 @@ export default function NullSpaceGuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           Null Space of a Matrix — How to Find It Using RREF
         </h1>
-        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Free guide</p>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated November 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           The null space (kernel) is the set of all vectors x satisfying Ax = 0. This guide shows exactly how to find it using reduced row echelon form, with worked examples and a proof of the rank-nullity theorem.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
 
         <article className="prose-content mt-8 space-y-10">
@@ -188,6 +193,16 @@ export default function NullSpaceGuidePage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Null Space Calculator</h2>
+            <p>
+              To check a null space you found by hand, enter the matrix in the <Link href="/matrix/null-space" className="text-primary hover:underline">null space calculator</Link>. It returns the basis vectors, the rank and nullity, and bases for the column space and row space, all in exact fractions.
+            </p>
+            <p>
+              Remember that a basis is not unique. If your vectors differ from the calculator's, check that each of yours is a combination of the calculator's vectors and that you have the same number of them (the nullity).
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/guides/null-space-matrix" picks={['/', '/matrix/inverse', '/guides/linear-algebra-basics', '/guides/solving-linear-systems', '/matrix/gauss-jordan']} />

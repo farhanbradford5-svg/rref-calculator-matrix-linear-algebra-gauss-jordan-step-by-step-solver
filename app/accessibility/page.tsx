@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Accessibility Statement — RREF Calculator',
   description: 'RREF Calculator accessibility statement. WCAG 2.1 AA conformance, keyboard navigation, and known limitations.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/accessibility/' },
 };
 
 export default function AccessibilityPage() {
@@ -11,7 +12,7 @@ export default function AccessibilityPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Accessibility' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Accessibility Statement</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026</p>
 
       <article className="prose-content space-y-6">
         <section>
@@ -41,12 +42,16 @@ export default function AccessibilityPage() {
 
         <section>
           <h2>Feedback</h2>
-          <p>If you encounter an accessibility barrier on this site, please contact us via the <a href="/contact">contact page</a>. Describe the barrier and include the URL of the page where you encountered it. We aim to resolve accessibility issues within 5 business days.</p>
+          <p>If you encounter an accessibility barrier on this site, please contact us via the <a href="/contact/">contact page</a>. Describe the barrier and include the URL of the page where you encountered it. We aim to resolve accessibility issues within 5 business days.</p>
         </section>
 
         <section>
           <h2>Technical Specification</h2>
           <p>This site is built with Next.js 15 (React 18), Tailwind CSS, and standard HTML5. It is tested with keyboard-only navigation. Screen reader testing is ongoing.</p>
+        </section>
+        <section>
+          <h2>Newer Calculators</h2>
+          <p>The calculators added in November 2026 (system of equations, eigenvalues, Cramer&apos;s rule, null space) use labelled inputs and announce results to screen readers when a calculation finishes. If any of them does not work with your assistive technology, please tell the site owner, Muhammad Farhan, through the <a href="/contact/">contact page</a> or <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>.</p>
         </section>
       </article>
     </main>

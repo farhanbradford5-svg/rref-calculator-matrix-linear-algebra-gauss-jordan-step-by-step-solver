@@ -6,6 +6,12 @@ const CALCULATORS = [
   { label: 'Determinant', href: '/matrix/determinant' },
   { label: 'Gauss-Jordan', href: '/matrix/gauss-jordan' },
   { label: 'Augmented Matrix', href: '/matrix/augmented' },
+  { label: 'Row Echelon Form', href: '/matrix/row-echelon-form' },
+  { label: 'Gaussian Elimination', href: '/matrix/gaussian-elimination' },
+  { label: 'System of Equations', href: '/algebra/system-of-equations' },
+  { label: 'Eigenvalues', href: '/matrix/eigenvalues' },
+  { label: "Cramer's Rule", href: '/matrix/cramers-rule' },
+  { label: 'Null Space', href: '/matrix/null-space' },
   { label: 'Matrix Multiply', href: '/matrix/multiply' },
   { label: 'Transpose', href: '/matrix/transpose' },
   { label: 'Cross Product', href: '/vectors/cross-product' },
@@ -58,6 +64,9 @@ export default function Footer() {
               The most accurate free matrix calculator hub. Exact rational arithmetic, step-by-step solutions, no sign-up.
             </p>
             <p className="text-xs text-slate-500 mt-3">© {new Date().getFullYear()} RREF Calculator</p>
+            <p className="text-xs text-slate-500 mt-1">
+              Built by <Link href="/about/#muhammad-farhan" className="hover:text-white transition-colors underline">Muhammad Farhan</Link>
+            </p>
           </div>
 
           <div>

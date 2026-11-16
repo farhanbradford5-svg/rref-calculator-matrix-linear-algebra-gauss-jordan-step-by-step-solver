@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import { SITE_URL, LAST_UPDATED, articleAuthor } from '@/data/site';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'REF vs RREF — Row Echelon Form vs Reduced Row Echelon Form Explained',
@@ -13,6 +15,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
+  author: articleAuthor,
+  publisher: { '@type': 'Organization', name: 'RREF Calculator', url: SITE_URL },
+  dateModified: LAST_UPDATED.iso,
   headline: 'REF vs RREF: Row Echelon Form vs Reduced Row Echelon Form',
   description: 'A complete explanation of the difference between Row Echelon Form and Reduced Row Echelon Form, with conditions, side-by-side examples, and guidance on when to use each.',
   url: 'https://rrefmatrixcalc.com/guides/ref-vs-rref',
@@ -50,10 +55,10 @@ export default function RefVsRrefGuidePage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           REF vs RREF — Row Echelon Form vs Reduced Row Echelon Form
         </h1>
-        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated September 2026 · Free guide</p>
+        <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated November 2026 · Free guide</p>
         <p className="text-lg text-slate-500 mb-6">
           The difference between REF and RREF is simple but critical. This guide explains the exact conditions for each, why RREF is unique while REF is not, and when to use each form.
-          <span className="ml-2 text-xs text-slate-400">Updated September 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
 
         <article className="prose-content mt-8 space-y-10">
@@ -244,6 +249,16 @@ export default function RefVsRrefGuidePage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Try Both Forms on Your Own Matrix</h2>
+            <p>
+              The quickest way to see the difference is to reduce one matrix both ways. The <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form calculator</Link> stops after forward elimination and leaves the pivots unscaled. The <Link href="/" className="text-primary hover:underline">RREF calculator</Link> continues until every pivot is 1 with zeros above and below.
+            </p>
+            <p>
+              Both have a Form toggle, so you can switch between REF and RREF on the same matrix without retyping it. The pivot columns are identical in the two results, which is a useful check on hand work.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/guides/ref-vs-rref" picks={['/', '/guides/gauss-jordan-vs-gaussian-elimination', '/guides/rref-step-by-step-tutorial', '/matrix/gauss-jordan', '/matrix/determinant']} />

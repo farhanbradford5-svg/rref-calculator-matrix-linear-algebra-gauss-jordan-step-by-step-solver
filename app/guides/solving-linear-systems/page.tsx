@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Solving Linear Systems — Complete Method Guide with Examples',
@@ -41,7 +42,7 @@ export default function SolvingLinearSystemsGuide() {
         Solving Linear Systems
       </h1>
       <p className="text-slate-500 mb-2">Every method, explained with full worked examples.</p>
-      <p className="text-xs text-slate-400 mb-8">📖 7 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+      <p className="text-xs text-slate-400 mb-8">📖 7 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
       <AdSlot id="guide-ls-top" size="leaderboard" />
 
       <article className="prose-content space-y-10 mt-6">
@@ -216,6 +217,16 @@ x - y  = 1`}</pre></div>
         </section>
 
         <AdSlot id="guide-ls-bottom" size="banner" />
+          <section>
+            <h2>Calculators for Each Method</h2>
+            <p>
+              Each method in this guide has a matching tool. For equations typed with x, y and z, use the <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link>. For forward elimination and back substitution, use the <Link href="/matrix/gaussian-elimination" className="text-primary hover:underline">Gaussian elimination calculator</Link>. For the determinant formula, use the <Link href="/matrix/cramers-rule" className="text-primary hover:underline">Cramer's rule calculator</Link>.
+            </p>
+            <p>
+              All three return exact fractions, so their answers can be compared directly with each other and with the <Link href="/matrix/inverse" className="text-primary hover:underline">matrix inverse</Link> method x = A⁻¹b.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/vectors/dot-product']} />
     </main>

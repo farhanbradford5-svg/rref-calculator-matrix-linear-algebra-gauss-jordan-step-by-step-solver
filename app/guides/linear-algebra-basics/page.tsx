@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import { SITE_URL, LAST_UPDATED, articleAuthor } from '@/data/site';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Linear Algebra Basics — Complete Beginner\'s Guide',
@@ -13,11 +15,12 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
+  author: articleAuthor,
+  publisher: { '@type': 'Organization', name: 'RREF Calculator', url: SITE_URL },
+  dateModified: LAST_UPDATED.iso,
   headline: 'Linear Algebra Basics — Complete Beginner\'s Guide',
   description: 'An introduction to linear algebra covering vectors, matrices, linear systems, RREF, rank, null space, span, and eigenvalues with worked examples.',
   url: 'https://rrefmatrixcalc.com/guides/linear-algebra-basics',
-  author: { '@type': 'Organization', name: 'RREF Calculator Editorial Team' },
-  dateModified: '2026-05-01',
 };
 
 const breadcrumbSchema = {
@@ -53,7 +56,7 @@ export default function LinearAlgebraBasicsGuide() {
           Linear Algebra Basics
         </h1>
         <p className="text-slate-500 mb-2">A complete primer for students starting linear algebra for the first time.</p>
-        <p className="text-xs text-slate-400 mb-8">📖 8 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+        <p className="text-xs text-slate-400 mb-8">📖 8 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
 
         <AdSlot id="guide-la-top" size="leaderboard" />
 
@@ -290,6 +293,13 @@ export default function LinearAlgebraBasicsGuide() {
           </section>
 
           <AdSlot id="guide-la-bottom" size="banner" />
+          <section>
+            <h2>Calculators for the Later Topics</h2>
+            <p>
+              The second half of a first linear algebra course moves from solving systems to subspaces and eigenvalues. For those topics, the <Link href="/matrix/null-space" className="text-primary hover:underline">null space calculator</Link> finds bases for the null space, column space and row space together with rank and nullity, and the <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link> gives the characteristic polynomial, eigenvalues and eigenvectors of matrices up to 4×4.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/multiply', '/vectors/dot-product', '/algebra/simplify-radicals']} />

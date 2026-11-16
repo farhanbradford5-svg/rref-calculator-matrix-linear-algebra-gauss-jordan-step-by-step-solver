@@ -3,11 +3,14 @@ import Link from 'next/link';
 import RREFCalculator from '@/components/calculator/RREFCalculator';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle, Zap, BookOpen, Users, ArrowRight } from 'lucide-react';
+import FounderNote from '@/components/FounderNote';
+import UpdatedNote from '@/components/UpdatedNote';
+import { OWNER } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'RREF Calculator — Reduced Row Echelon Form with Step-by-Step Solutions',
   description:
-    'Free online RREF calculator. Solve any matrix up to 6×6, see every Gauss-Jordan elimination step with full explanations, get exact fraction answers. No sign-up. Updated September 2026.',
+    'Free online RREF calculator. Solve any matrix up to 6×6, see every Gauss-Jordan elimination step with full explanations, get exact fraction answers. No sign-up. Updated November 2026.',
   alternates: {
     canonical: 'https://rrefmatrixcalc.com',
   },
@@ -20,6 +23,7 @@ const organizationSchema = {
   url: 'https://rrefmatrixcalc.com',
   description: 'Free online math calculator hub specializing in linear algebra: RREF, matrix inverse, determinant, and more.',
   sameAs: [],
+  founder: { '@type': 'Person', '@id': OWNER.profileUrl, name: OWNER.name, url: OWNER.profileUrl },
 };
 
 const websiteSchema = {
@@ -248,6 +252,12 @@ const HUB_CALCULATORS = [
   { label: 'Transpose', href: '/matrix/transpose', desc: 'Compute Aᵀ instantly', ready: true },
   { label: 'Cross Product', href: '/vectors/cross-product', desc: '3D vector u × v', ready: true },
   { label: 'Dot Product', href: '/vectors/dot-product', desc: 'n-dimensional u · v', ready: true },
+  { label: 'Row Echelon Form', href: '/matrix/row-echelon-form', desc: 'REF by forward elimination', ready: true },
+  { label: 'Gaussian Elimination', href: '/matrix/gaussian-elimination', desc: 'Echelon form + back substitution', ready: true },
+  { label: 'System of Equations', href: '/algebra/system-of-equations', desc: 'Type equations, get answers', ready: true },
+  { label: 'Eigenvalues', href: '/matrix/eigenvalues', desc: 'Eigenvalues & eigenvectors', ready: true },
+  { label: "Cramer's Rule", href: '/matrix/cramers-rule', desc: 'Solve with determinants', ready: true },
+  { label: 'Null Space', href: '/matrix/null-space', desc: 'Basis, rank, nullity', ready: true },
   { label: 'Simplify Radicals', href: '/algebra/simplify-radicals', desc: 'Simplify √n', ready: true },
 ];
 
@@ -270,12 +280,12 @@ export default function HomePage() {
               with Step-by-Step Solutions
             </h1>
             <p className="text-xs text-slate-400 mt-1 mb-4">
-              Last updated: September 2026 · Reviewed for accuracy · Free, no sign-up
+              Last updated: November 2026 · Reviewed for accuracy · Free, no sign-up
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
               Free online RREF calculator. Solve any matrix size (2×2 to 6×6), see every Gauss-Jordan elimination step explained in plain English, get exact fraction answers.{' '}
-              <strong>No sign-up. Updated September 2026.</strong>{' '}
-              Every calculation shows the complete Gauss-Jordan elimination process — use it as an rref calculator with steps to check your own work or understand each row operation.
+              <strong>No sign-up. Updated November 2026.</strong>{' '}
+              Every calculation shows the complete Gauss-Jordan elimination process — use it as an rref calculator with steps to check your own work or understand each row operation. It doubles as a row reduction calculator: switch the Form toggle to REF for row echelon form, or use Paste Matrix to drop in a matrix copied from a spreadsheet or problem set.
             </p>
           </div>
 
@@ -601,7 +611,7 @@ export default function HomePage() {
       <section className="bg-surface py-12 border-t border-slate-100" id="hub">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-slate-900 mb-1">All Calculators</h2>
-          <p className="text-sm text-slate-500 mb-6">10 calculators powered by the same exact rational arithmetic engine.</p>
+          <p className="text-sm text-slate-500 mb-6">{HUB_CALCULATORS.length} calculators powered by the same exact rational arithmetic engine.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             {HUB_CALCULATORS.map(c => (
               <Link key={c.label} href={c.href}
@@ -673,6 +683,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white py-10 border-t border-slate-100">
+        <div className="max-w-3xl mx-auto px-4">
+          <FounderNote />
+          <UpdatedNote className="mt-4" />
+        </div>
+      </section>
+
       <AdSlot id="home-before-faq" size="banner" />
 
       {/* FAQ — 20 questions */}
@@ -680,7 +697,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Frequently Asked Questions</h2>
           <p className="text-slate-500 mb-2 text-sm">20 questions covering RREF, Gauss-Jordan, augmented matrices, and this calculator. For a full reference, see our <Link href="/faq" className="text-primary hover:underline">FAQ page</Link>.</p>
-          <p className="text-slate-500 mb-8 text-sm">Built by a team committed to exact mathematics — <Link href="/about" className="text-primary hover:underline">learn about our methodology</Link>.</p>
+          <p className="text-slate-500 mb-8 text-sm">Built and maintained by Muhammad Farhan — <Link href="/about" className="text-primary hover:underline">about this site and its methodology</Link>.</p>
           <div className="space-y-3">
             {faqSchema.mainEntity.map((item, i) => (
               <details key={i} className="card p-5 group">

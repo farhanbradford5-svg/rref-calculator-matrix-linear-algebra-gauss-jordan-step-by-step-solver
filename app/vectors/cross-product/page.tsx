@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Cross Product Calculator — 3D Vector u × v with Steps',
+  title: { absolute: 'Cross Product Calculator — 3D Vector u × v with Steps' },
   description: 'Compute the cross product of two 3D vectors. See i, j, k components calculated via the determinant formula. Exact arithmetic. Free, no sign-up.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/vectors/cross-product' },
 };
@@ -61,7 +62,7 @@ export default function CrossProductPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Compute <strong>u × v</strong> for two 3D vectors. Full determinant expansion shown, exact arithmetic.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <CrossProductCalculator />
         <AdSlot id="cross-after-calc" size="leaderboard" />
@@ -245,6 +246,16 @@ export default function CrossProductPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>The Cross Product as a Null Space</h2>
+            <p>
+              The cross product u × v is perpendicular to both u and v. That means it solves two equations at once: u · x = 0 and v · x = 0. Put u and v as the two rows of a 2×3 matrix and the <Link href="/matrix/null-space" className="text-primary hover:underline">null space calculator</Link> returns a vector in the same direction as u × v.
+            </p>
+            <p>
+              This is also why u × v = 0 when u and v are parallel: the 2×3 matrix then has rank 1, the null space is a whole plane, and there is no single perpendicular direction. The triple product u · (v × w) is the <Link href="/matrix/determinant" className="text-primary hover:underline">determinant</Link> of the 3×3 matrix with rows u, v, w.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/vectors/cross-product" picks={['/', '/vectors/dot-product', '/matrix/determinant', '/matrix/inverse', '/algebra/simplify-radicals']} />

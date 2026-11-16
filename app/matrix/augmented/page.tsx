@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Augmented Matrix Calculator — Solve Linear Systems with RREF',
@@ -56,10 +57,10 @@ export default function AugmentedPage() {
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2 leading-tight">
           Augmented Matrix Calculator
         </h1>
-        <p className="text-xs text-slate-400 mb-6">📖 5 min read · Updated May 2026</p>
+        <p className="text-xs text-slate-400 mb-6">📖 5 min read · Updated November 2026</p>
         <p className="text-lg text-slate-500 mb-6">
           Enter a system of equations as [A|b] and apply RREF to solve. Every Gauss-Jordan step shown, exact fractions throughout.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <RREFCalculator />
         <AdSlot id="aug-after-calc" size="leaderboard" />
@@ -231,6 +232,16 @@ export default function AugmentedPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Other Ways to Solve the Same System</h2>
+            <p>
+              If you would rather type equations with x, y and z than fill in a matrix, the <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link> accepts the same system in equation form and returns the same exact answer.
+            </p>
+            <p>
+              To follow the method that stops at row echelon form and finishes by back substitution, use the <Link href="/matrix/gaussian-elimination" className="text-primary hover:underline">Gaussian elimination calculator</Link>. For a square system with a non-zero determinant, you can cross-check any answer with the <Link href="/matrix/cramers-rule" className="text-primary hover:underline">Cramer's rule calculator</Link>.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/augmented" picks={['/', '/matrix/inverse', '/guides/solving-linear-systems', '/matrix/gauss-jordan', '/matrix/determinant']} />

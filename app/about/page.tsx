@@ -1,6 +1,8 @@
 ﻿import type { Metadata } from 'next';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import AdSlot from '@/components/calculator/AdSlot';
+import FounderNote from '@/components/FounderNote';
+import { ownerSchema } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'About RREF Calculator — Why We Built an Exact Fraction Linear Algebra Tool',
@@ -13,8 +15,9 @@ export default function AboutPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">About RREF Calculator</h1>
-      <p className="text-slate-500 mb-8">Updated May 2026</p>
+      <p className="text-slate-500 mb-8">Updated November 2026</p>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ownerSchema) }} />
       <article className="prose-content space-y-8">
         <section>
           <h2>Why We Built This</h2>
@@ -52,7 +55,7 @@ export default function AboutPage() {
         <section>
           <h2>What We Build</h2>
           <p>
-            This site is a <strong>math calculator hub</strong> focused on linear algebra and related topics. The RREF calculator is our flagship, but we have expanded to cover the full matrix algebra toolkit: matrix inverse, determinant, multiplication, transpose, and vector operations including the cross product and dot product.
+            This site is a <strong>math calculator hub</strong> focused on linear algebra and related topics. The RREF calculator is our flagship, but we have expanded to cover the full matrix algebra toolkit: matrix inverse, determinant, multiplication, transpose, and vector operations including the cross product and dot product. In November 2026 we added calculators for row echelon form, Gaussian elimination, systems of equations, eigenvalues, Cramer&apos;s rule and the null space.
           </p>
           <p>
             Each calculator shares the same exact arithmetic engine built on BigInt rational numbers. This means every calculator on this site handles fractions in the input, carries exact fractions through all operations, and reports exact fractions in the output. The simplify radicals calculator uses a prime factorization algorithm with the same commitment to exact results.
@@ -62,16 +65,15 @@ export default function AboutPage() {
           </p>
         </section>
 
+        <FounderNote full />
+
         <section>
-          <h2>Our Team</h2>
+          <h2>How Content Is Checked</h2>
           <p>
-            RREF Calculator is built and maintained by a small team of math writers, software developers, and educators who are passionate about making linear algebra accessible to students at all levels.
+            Calculator output and guide content are checked against standard references — primarily Gilbert Strang's <em>Introduction to Linear Algebra</em> (MIT 18.06) and David Lay's <em>Linear Algebra and Its Applications</em>. We update our content when we find errors or when notation conventions shift.
           </p>
           <p>
-            Our math editorial team reviews every calculator and guide for mathematical accuracy before publication. Content is checked against standard references — primarily Gilbert Strang's <em>Introduction to Linear Algebra</em> (MIT 18.06) and David Lay's <em>Linear Algebra and Its Applications</em>. We update our content when we find errors or when notation conventions shift.
-          </p>
-          <p>
-            We do not fabricate credentials. Our team's expertise comes from working with linear algebra in software, education, and applied mathematics — not from institutional affiliations we don't have.
+            We do not fabricate credentials. Farhan is a software engineer, not a mathematics professor, and this site does not claim institutional affiliations it does not have. What you can rely on is exact arithmetic that shows every step, so any result can be verified by hand.
           </p>
         </section>
 
@@ -100,7 +102,7 @@ export default function AboutPage() {
             Current limitations: the UI supports matrices up to 6×6. Complex number entries are not supported in this version. Irrational inputs (like √2) would need to be approximated as fractions; we may add symbolic support in a future version.
           </p>
           <p>
-            We describe our methodology in detail on the <a href="/methodology">Methodology page</a>.
+            We describe our methodology in detail on the <a href="/methodology/">Methodology page</a>.
           </p>
         </section>
 
@@ -112,18 +114,18 @@ export default function AboutPage() {
             For any matrix with rational entries (integers or fractions), the output of every calculator on this site is mathematically exact. We do not round, truncate, or approximate at any stage of the computation. A result that should be 0 is stored as BigInt 0/1 — not 1.2e−16. A result that should be 7/12 is stored as exactly 7/12 — not 0.583333.
           </p>
           <p>
-            We test each calculator against known results from NumPy, MATLAB, and Wolfram Alpha before release. If you find a case where our output disagrees with the mathematically correct answer, please report it via the contact page. We will investigate and correct it within 48 hours. See our <a href="/methodology">Methodology page</a> for the full technical description of how accuracy is verified.
+            We test each calculator against known results from NumPy, MATLAB, and Wolfram Alpha before release. If you find a case where our output disagrees with the mathematically correct answer, please report it via the contact page. We will investigate and correct it within 48 hours. See our <a href="/methodology/">Methodology page</a> for the full technical description of how accuracy is verified.
           </p>
-          <p className="text-sm text-slate-400">Site last updated: May 2026.</p>
+          <p className="text-sm text-slate-400">Site last updated: November 2026.</p>
         </section>
 
         <section>
           <h2>Contact and Corrections</h2>
           <p>
-            Found a bug? Noticed a mathematical error in one of our guides? Have a suggestion for a calculator we should add? We want to hear about it. See our <a href="/contact">contact page</a> to reach us.
+            Found a bug? Noticed a mathematical error in one of our guides? Have a suggestion for a calculator we should add? We want to hear about it. See our <a href="/contact/">contact page</a> to reach us.
           </p>
           <p>
-            We take corrections seriously. If a guide contains an error, we will correct it and note the correction with a date on the page. See our <a href="/editorial-policy">editorial policy</a> for our full correction process.
+            We take corrections seriously. If a guide contains an error, we will correct it and note the correction with a date on the page. See our <a href="/editorial-policy/">editorial policy</a> for our full correction process.
           </p>
         </section>
       </article>

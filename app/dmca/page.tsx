@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'DMCA Policy — RREF Calculator',
   description: 'DMCA takedown policy and copyright notice for RREF Calculator.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/dmca/' },
 };
 
 export default function DMCAPage() {
@@ -11,7 +12,7 @@ export default function DMCAPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'DMCA' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">DMCA Policy</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026</p>
 
       <article className="prose-content space-y-6">
         <section>
@@ -22,7 +23,7 @@ export default function DMCAPage() {
 
         <section>
           <h2>Reporting Infringement</h2>
-          <p>If you believe your copyrighted work has been reproduced on this site in a way that constitutes infringement, please submit a DMCA notice via the <a href="/contact">contact page</a> including:</p>
+          <p>If you believe your copyrighted work has been reproduced on this site in a way that constitutes infringement, please submit a DMCA notice via the <a href="/contact/">contact page</a> including:</p>
           <ol>
             <li>Identification of the copyrighted work you claim has been infringed</li>
             <li>Identification of the specific URL on our site where the infringing material appears</li>
@@ -37,6 +38,10 @@ export default function DMCAPage() {
         <section>
           <h2>Counter-Notice</h2>
           <p>If your content was removed in response to a DMCA notice and you believe the removal was in error, you may submit a counter-notice via the contact page. Counter-notices must comply with 17 U.S.C. § 512(g)(3).</p>
+        </section>
+        <section>
+          <h2>Designated Contact</h2>
+          <p>Copyright notices for rrefmatrixcalc.com are handled by the site owner, Muhammad Farhan. Send them through the <a href="/contact/">contact page</a> or to him on <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>, and put &quot;DMCA&quot; at the start of the message.</p>
         </section>
       </article>
     </main>

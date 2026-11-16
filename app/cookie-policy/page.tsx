@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Cookie Policy — RREF Calculator',
   description: 'Cookie policy for RREF Calculator. What cookies we use and how to manage them.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/cookie-policy/' },
 };
 
 export default function CookiePolicyPage() {
@@ -11,7 +12,7 @@ export default function CookiePolicyPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Cookie Policy' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Cookie Policy</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026</p>
 
       <article className="prose-content space-y-6">
         <section>
@@ -40,6 +41,10 @@ export default function CookiePolicyPage() {
           <h2>Managing Cookies</h2>
           <p>You can control cookies through your browser settings. Most browsers allow you to view, delete, and block cookies. Note that blocking essential cookies may affect site functionality.</p>
           <p>To opt out of Google advertising cookies specifically: visit <a href="https://adssettings.google.com" rel="noopener noreferrer" target="_blank">adssettings.google.com</a>. To opt out of all Google Analytics tracking: use the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">Google Analytics opt-out browser add-on</a>.</p>
+        </section>
+        <section>
+          <h2>Saved Calculations</h2>
+          <p>The calculation history and saved problems on the RREF calculator are kept in your browser&apos;s local storage, not in cookies, and never leave your device. Clearing your browser&apos;s site data removes them. Questions about this policy go to the site owner, Muhammad Farhan, through the <a href="/contact/">contact page</a> or <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>.</p>
         </section>
       </article>
     </main>

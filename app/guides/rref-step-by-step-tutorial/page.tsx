@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import TableOfContents from '@/components/TableOfContents';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'RREF Step-by-Step Tutorial — Complete Worked Examples',
@@ -43,7 +44,7 @@ export default function RREFTutorial() {
         RREF Step-by-Step Tutorial
       </h1>
       <p className="text-slate-500 mb-2">Three complete worked examples: 2×2, 3×3, and 3×4 augmented matrix. Every row operation shown.</p>
-      <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+      <p className="text-xs text-slate-400 mb-6">📖 6 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
       <TableOfContents
         readingTimeMin={8}
         items={[
@@ -266,6 +267,16 @@ x₃ = t   (free parameter)`}</pre></div>
         </section>
 
         <AdSlot id="tut-bottom" size="banner" />
+          <section>
+            <h2>Check Each Example Yourself</h2>
+            <p>
+              Every worked example in this tutorial can be reproduced on the <Link href="/" className="text-primary hover:underline">RREF calculator</Link>. Click Paste Matrix, type the rows as plain text (for example <code>1 2 -1 4</code> on one line and <code>2 4 -2 8</code> on the next), and compare the step list with the operations shown here.
+            </p>
+            <p>
+              If your course grades the forward-elimination stage separately, the <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form calculator</Link> shows where that stage ends, and the <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link> takes the same problems written as equations.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/guides/solving-linear-systems']} />
     </main>

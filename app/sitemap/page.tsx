@@ -5,7 +5,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Site Map — RREF Calculator Hub',
   description:
-    'Complete site map of RREF Calculator: all 11 calculators, 6 guides, FAQ, trust pages, and legal pages — organized by category.',
+    'Complete site map of RREF Calculator: every calculator and guide, plus the FAQ, trust pages, and legal pages — organized by category.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/sitemap' },
 };
 
@@ -56,14 +56,39 @@ const CALCULATORS = [
     desc: 'Reduce square roots to simplest radical form via prime factorization.',
   },
   {
-    label: 'Eigenvalues Calculator',
-    href: '/matrix/eigenvalues',
-    desc: 'Characteristic polynomial and eigenvalues for 2×2 and 3×3 matrices.',
+    label: 'Augmented Matrix Calculator',
+    href: '/matrix/augmented',
+    desc: 'Solve a linear system from its augmented matrix [A|b] and classify the solution.',
   },
   {
-    label: 'Quadratic Formula Calculator',
-    href: '/algebra/quadratic',
-    desc: 'Solve ax² + bx + c = 0 with exact radical answers.',
+    label: 'Row Echelon Form Calculator',
+    href: '/matrix/row-echelon-form',
+    desc: 'Reduce a matrix to REF by forward elimination, with every row operation shown.',
+  },
+  {
+    label: 'Gaussian Elimination Calculator',
+    href: '/matrix/gaussian-elimination',
+    desc: 'Forward elimination to echelon form, then the solution by back substitution.',
+  },
+  {
+    label: 'System of Equations Calculator',
+    href: '/algebra/system-of-equations',
+    desc: 'Type 2 to 5 linear equations and get exact answers with elimination steps.',
+  },
+  {
+    label: 'Eigenvalue Calculator',
+    href: '/matrix/eigenvalues',
+    desc: 'Characteristic polynomial, eigenvalues and eigenvectors for 2×2 to 4×4 matrices.',
+  },
+  {
+    label: "Cramer's Rule Calculator",
+    href: '/matrix/cramers-rule',
+    desc: 'Solve 2×2, 3×3 and 4×4 systems with determinants, each one shown.',
+  },
+  {
+    label: 'Null Space Calculator',
+    href: '/matrix/null-space',
+    desc: 'Basis for the null space, rank, nullity, column space and row space.',
   },
 ];
 
@@ -97,6 +122,21 @@ const GUIDES = [
     label: 'Linear Algebra for Students',
     href: '/guides/linear-algebra-for-students',
     desc: 'Study guide for the linear algebra course: what to know and how to prepare.',
+  },
+  {
+    label: 'REF vs RREF',
+    href: '/guides/ref-vs-rref',
+    desc: 'Row echelon form compared with reduced row echelon form, with examples.',
+  },
+  {
+    label: 'Null Space of a Matrix',
+    href: '/guides/null-space-matrix',
+    desc: 'How to find the kernel with RREF: free variables, basis vectors, rank–nullity.',
+  },
+  {
+    label: 'RREF on a TI-84',
+    href: '/guides/rref-calculator-ti84',
+    desc: 'Using rref( on a TI-84 and how it compares with exact online results.',
   },
 ];
 

@@ -8,6 +8,13 @@ const CALCULATORS = [
   { label: 'Matrix Inverse', href: '/matrix/inverse' },
   { label: 'Determinant', href: '/matrix/determinant' },
   { label: 'Augmented Matrix', href: '/matrix/augmented' },
+  { label: 'Row Echelon Form (REF)', href: '/matrix/row-echelon-form' },
+  { label: 'Gauss-Jordan', href: '/matrix/gauss-jordan' },
+  { label: 'Gaussian Elimination', href: '/matrix/gaussian-elimination' },
+  { label: 'System of Equations', href: '/algebra/system-of-equations' },
+  { label: 'Eigenvalues', href: '/matrix/eigenvalues' },
+  { label: "Cramer's Rule", href: '/matrix/cramers-rule' },
+  { label: 'Null Space', href: '/matrix/null-space' },
   { label: 'Matrix Multiply', href: '/matrix/multiply' },
   { label: 'Transpose', href: '/matrix/transpose' },
   { label: 'Cross Product', href: '/vectors/cross-product' },
@@ -55,7 +62,7 @@ export default function Nav() {
                 Calculators <ChevronDown size={14} />
               </button>
               {calcOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-50">
+                <div className="absolute top-full left-0 mt-1 w-[30rem] grid grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-lg py-1 z-50">
                   {CALCULATORS.map(c => (
                     <Link key={c.href} href={c.href}
                       className="block px-4 py-2 text-sm text-slate-700 hover:bg-primary-50 hover:text-primary transition-colors">

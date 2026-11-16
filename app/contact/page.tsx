@@ -18,6 +18,11 @@ export default function ContactPage() {
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Contact Us</h1>
       <p className="text-slate-500 mb-8">Found a bug? Mathematical error in our content? Suggestion for a new calculator? We want to hear from you.</p>
 
+      <p className="text-sm text-slate-500 mb-6">
+        RREF Calculator is run by <a href="/about/#muhammad-farhan" className="text-primary hover:underline">Muhammad Farhan</a>. You can also reach him on{' '}
+        <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me" className="text-primary hover:underline">LinkedIn</a>. Page updated November 2026.
+      </p>
+
       {sent ? (
         <div className="card p-8 text-center">
           <CheckCircle className="text-green-500 mx-auto mb-3" size={40} />

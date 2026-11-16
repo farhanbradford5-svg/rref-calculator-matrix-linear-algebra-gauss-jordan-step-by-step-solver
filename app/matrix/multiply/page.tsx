@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Matrix Multiplication Calculator — A × B with Step-by-Step Dot Products',
+  title: { absolute: 'Matrix Multiplication Calculator with Steps (A × B)' },
   description: 'Multiply any two compatible matrices. See every dot product calculation, exact fraction answers. Free, no sign-up. Dimensions 2–5 rows/cols.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/matrix/multiply' },
 };
@@ -61,7 +62,7 @@ export default function MultiplyPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Compute <strong>A × B</strong> for any compatible matrices. Every entry of C = AB shown as a dot product, exact fractions throughout.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <MultiplyCalculator />
         <AdSlot id="mul-after-calc" size="leaderboard" />
@@ -236,6 +237,19 @@ export default function MultiplyPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Using Matrix Multiplication to Check Other Answers</h2>
+            <p>
+              <strong>Check an inverse.</strong> Multiply A by the result from the <Link href="/matrix/inverse" className="text-primary hover:underline">inverse matrix calculator</Link>. The product must be the identity matrix.
+            </p>
+            <p>
+              <strong>Check an eigenvector.</strong> Enter A and the eigenvector v as a one-column matrix. The product Av should equal λv, the same vector scaled by the eigenvalue from the <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link>.
+            </p>
+            <p>
+              <strong>Check a solution.</strong> A system of equations is the matrix equation Ax = b. Multiply A by your solution column: you should get b back. The <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link> finds x in the first place.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/multiply" picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/transpose', '/vectors/dot-product']} />

@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Privacy Policy — RREF Calculator',
   description: 'RREF Calculator privacy policy. GDPR and CCPA compliant. No personal data collected. Matrix data stays in your browser.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/privacy-policy/' },
 };
 
 export default function PrivacyPolicyPage() {
@@ -11,7 +12,7 @@ export default function PrivacyPolicyPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Privacy Policy</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026. Effective: March 2026.</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026. Effective: March 2026.</p>
 
       <article className="prose-content space-y-6">
         <section>
@@ -45,7 +46,7 @@ export default function PrivacyPolicyPage() {
 
         <section>
           <h2>Your Rights (GDPR and CCPA)</h2>
-          <p>Since we do not collect personal data, most GDPR/CCPA rights (access, deletion, portability) apply primarily to the contact form data you voluntarily submit. To request deletion of any contact form submission, email us via the <a href="/contact">contact page</a>.</p>
+          <p>Since we do not collect personal data, most GDPR/CCPA rights (access, deletion, portability) apply primarily to the contact form data you voluntarily submit. To request deletion of any contact form submission, email us via the <a href="/contact/">contact page</a>.</p>
           <p>For advertising opt-out (California residents): You can opt out of the sale of personal information for advertising via the AdSense opt-out link above.</p>
         </section>
 
@@ -56,12 +57,16 @@ export default function PrivacyPolicyPage() {
 
         <section>
           <h2>Changes to This Policy</h2>
-          <p>We will update this policy when our data practices change. The "Last updated" date at the top reflects the most recent revision. Significant changes will be noted in the <a href="/changelog">changelog</a>.</p>
+          <p>We will update this policy when our data practices change. The "Last updated" date at the top reflects the most recent revision. Significant changes will be noted in the <a href="/changelog/">changelog</a>.</p>
         </section>
 
         <section>
           <h2>Contact</h2>
-          <p>Questions about this privacy policy? Use the <a href="/contact">contact page</a>.</p>
+          <p>Questions about this privacy policy? Use the <a href="/contact/">contact page</a>.</p>
+        </section>
+        <section>
+          <h2>Who Operates This Site</h2>
+          <p>RREF Calculator (rrefmatrixcalc.com) is owned and operated by <a href="/about/#muhammad-farhan">Muhammad Farhan</a>, who is the contact for any privacy request (also reachable on <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>). The calculators added in November 2026 work the same way as the existing ones: every matrix you enter is processed in your browser and is not sent to a server.</p>
         </section>
       </article>
     </main>

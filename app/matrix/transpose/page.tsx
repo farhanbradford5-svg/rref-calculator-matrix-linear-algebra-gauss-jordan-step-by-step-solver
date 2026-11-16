@@ -5,9 +5,10 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
-  title: 'Matrix Transpose Calculator — Compute Aᵀ Instantly',
+  title: { absolute: 'Matrix Transpose Calculator — Compute Aᵀ Instantly' },
   description: 'Transpose any matrix by flipping rows and columns. Visual result with explanation. Free, instant, no sign-up. Supports 2×2 to 6×6 matrices.',
   alternates: { canonical: 'https://rrefmatrixcalc.com/matrix/transpose' },
 };
@@ -61,7 +62,7 @@ export default function TransposePage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Compute <strong>Aᵀ</strong> by flipping rows and columns. Instant visual result with dimension labels.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <TransposeCalculator />
         <AdSlot id="trans-after-calc" size="leaderboard" />
@@ -227,6 +228,16 @@ export default function TransposePage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>What Transposing Does Not Change</h2>
+            <p>
+              A and Aᵀ always have the same rank, the same <Link href="/matrix/determinant" className="text-primary hover:underline">determinant</Link> and the same <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalues</Link>. The eigenvectors are generally different unless A is symmetric.
+            </p>
+            <p>
+              The null space does change. The null space of Aᵀ is called the left null space of A. To find it, transpose A here and enter the result in the <Link href="/matrix/null-space" className="text-primary hover:underline">null space calculator</Link>; the same trick gives the row space of A as the column space of Aᵀ.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/matrix/transpose" picks={['/', '/matrix/inverse', '/matrix/multiply', '/vectors/dot-product', '/vectors/cross-product']} />

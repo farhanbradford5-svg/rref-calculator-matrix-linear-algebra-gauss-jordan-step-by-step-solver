@@ -187,10 +187,13 @@ export function computeRREF(
         for (const fIdx of freeVarIndices) {
           const coeff = matrix[r][fIdx].neg();
           if (coeff.isZero()) continue;
-          const term = coeff.isOne()
+          // Write "4 - 2x_2" rather than "4 + -2x_2".
+          const mag = coeff.abs();
+          const term = mag.isOne()
             ? `x_{${fIdx + 1}}`
-            : `${coeff.toLatex()} x_{${fIdx + 1}}`;
-          expr = expr ? `${expr} + ${term}` : term;
+            : `${mag.toLatex()} x_{${fIdx + 1}}`;
+          if (expr) expr = `${expr} ${coeff.isNeg() ? '-' : '+'} ${term}`;
+          else expr = coeff.isNeg() ? `-${term}` : term;
         }
         parametricForm += `x_{${pCol + 1}} = ${expr || '0'}, \\quad `;
       }

@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
 import { CheckCircle } from 'lucide-react';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Simplify Radicals Calculator — Simplified Radical Form & Radical Form Calculator',
@@ -61,7 +62,7 @@ export default function SimplifyRadicalsPage() {
         </h1>
         <p className="text-lg text-slate-500 mb-6">
           Simplify <strong>√n</strong> to a·√b form using prime factorization. Every step explained.
-          <span className="ml-2 text-xs text-slate-400">Updated May 2026 · Reviewed by our math editorial team</span>
+          <span className="ml-2 text-xs text-slate-400">Updated November 2026 · Maintained by Muhammad Farhan</span>
         </p>
         <RadicalCalculator />
         <AdSlot id="rad-after-calc" size="leaderboard" />
@@ -266,6 +267,13 @@ export default function SimplifyRadicalsPage() {
               ))}
             </div>
           </section>
+          <section>
+            <h2>Radicals in Eigenvalue Problems</h2>
+            <p>
+              Simplified radicals appear whenever a characteristic polynomial does not factor over the rationals. The matrix [[1, 2], [3, 4]] has eigenvalues (5 ± √33)/2, and [[2, 1], [1, 3]] has (5 ± √5)/2. The <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link> returns these in exact radical form; if you worked the quadratic formula by hand and got something like √132/4, simplify it here to compare (√132 = 2√33).
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
         </article>
       </main>
       <RelatedCalculators exclude="/algebra/simplify-radicals" picks={['/', '/matrix/determinant', '/vectors/cross-product', '/vectors/dot-product', '/matrix/inverse']} />

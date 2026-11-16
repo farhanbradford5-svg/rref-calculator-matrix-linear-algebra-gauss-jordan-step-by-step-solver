@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Matrix Operations Cheat Sheet — Quick Reference for Linear Algebra',
@@ -41,7 +42,7 @@ export default function MatrixCheatSheet() {
         Matrix Operations Cheat Sheet
       </h1>
       <p className="text-slate-500 mb-2">Quick reference for every matrix operation — formulas, rules, and worked examples.</p>
-      <p className="text-xs text-slate-400 mb-8">📖 6 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+      <p className="text-xs text-slate-400 mb-8">📖 6 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
       <AdSlot id="cheat-top" size="leaderboard" />
 
       <div className="space-y-8 mt-6">
@@ -279,6 +280,15 @@ AB = [1·0+2·1  1·1+2·0] = [2 1]
           </div>
         </section>
 
+      </div>
+      <div className="max-w-4xl mx-auto px-4 pb-4">
+        <section className="card p-5">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Calculator for Each Operation</h2>
+          <p className="text-sm text-slate-600">
+            Every row of this cheat sheet has a matching tool: <Link href="/matrix/multiply" className="text-primary hover:underline">multiplication</Link>, <Link href="/matrix/inverse" className="text-primary hover:underline">inverse</Link>, <Link href="/matrix/determinant" className="text-primary hover:underline">determinant</Link>, <Link href="/matrix/transpose" className="text-primary hover:underline">transpose</Link>, <Link href="/" className="text-primary hover:underline">RREF</Link>, <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form</Link>, <Link href="/matrix/null-space" className="text-primary hover:underline">null space and rank</Link>, <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalues</Link> and <Link href="/matrix/cramers-rule" className="text-primary hover:underline">Cramer's rule</Link>. All of them return exact fractions.
+          </p>
+          <UpdatedNote className="mt-3" />
+        </section>
       </div>
     </main>
     <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/matrix/multiply', '/matrix/transpose']} />

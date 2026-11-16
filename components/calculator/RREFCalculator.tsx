@@ -1,6 +1,6 @@
 'use client';
 import { useState, useCallback, useEffect } from 'react';
-import { Play, RefreshCw, Shuffle, ChevronDown, Eye, EyeOff } from 'lucide-react';
+import { Play, RefreshCw, Shuffle, ChevronDown, Eye, EyeOff, ClipboardPaste } from 'lucide-react';
 import { clsx } from 'clsx';
 import MatrixInput from './MatrixInput';
 import MatrixDisplay from './MatrixDisplay';
@@ -11,6 +11,7 @@ import type { RREFResult, HistoryEntry } from '@/lib/calculators/shared-types';
 import { EXAMPLE_MATRICES } from '@/lib/calculators/shared-types';
 import { computeRREF, matrixFromStrings, decodeMatrixFromUrl } from '@/lib/calculators/rref';
 import { Rational } from '@/lib/calculators/rational';
+import { parsePastedMatrix } from '@/lib/calculators/paste';
 
 const MODE_OPTIONS: { value: 'rref' | 'ref'; label: string; title: string }[] = [
   { value: 'rref', label: 'RREF', title: 'Reduced row echelon form — pivots scaled to 1, zeros above and below each pivot' },
@@ -42,17 +43,26 @@ function randomMatrix(rows: number, cols: number): string[][] {
   );
 }
 
-export default function RREFCalculator() {
+interface RREFCalculatorProps {
+  /** Which form the calculator starts in. Users can still switch with the Form toggle. */
+  defaultMode?: 'ref' | 'rref';
+  defaultAugmented?: boolean;
+}
+
+export default function RREFCalculator({ defaultMode = 'rref', defaultAugmented = true }: RREFCalculatorProps = {}) {
   const [rows, setRows] = useState(3);
   const [cols, setCols] = useState(4);
   const [values, setValues] = useState<string[][]>(makeEmpty(3, 4));
   const [errors, setErrors] = useState<boolean[][]>(makeErrors(3, 4));
-  const [isAugmented, setIsAugmented] = useState(true);
+  const [isAugmented, setIsAugmented] = useState(defaultAugmented);
   const [result, setResult] = useState<RREFResult | null>(null);
   const [activeTab, setActiveTab] = useState<'steps' | 'solution'>('steps');
   const [verbose, setVerbose] = useState(true);
-  const [mode, setMode] = useState<'ref' | 'rref'>('rref');
-  const [resultMode, setResultMode] = useState<'ref' | 'rref'>('rref');
+  const [mode, setMode] = useState<'ref' | 'rref'>(defaultMode);
+  const [resultMode, setResultMode] = useState<'ref' | 'rref'>(defaultMode);
+  const [showPaste, setShowPaste] = useState(false);
+  const [pasteText, setPasteText] = useState('');
+  const [pasteError, setPasteError] = useState('');
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [showExamples, setShowExamples] = useState(false);
   const [isCalculating, setIsCalculating] = useState(false);
@@ -213,6 +223,23 @@ export default function RREFCalculator() {
     setShowExamples(false);
   };
 
+  const handleApplyPaste = () => {
+    const parsed = parsePastedMatrix(pasteText);
+    if ('error' in parsed) {
+      setPasteError(parsed.error);
+      return;
+    }
+    const m = parsed.matrix;
+    setRows(m.length);
+    setCols(m[0].length);
+    setValues(m);
+    setErrors(makeErrors(m.length, m[0].length));
+    setResult(null);
+    setPasteError('');
+    setPasteText('');
+    setShowPaste(false);
+  };
+
   const handleLoadHistory = (entry: HistoryEntry) => {
     setRows(entry.rows);
     setCols(entry.cols);
@@ -368,11 +395,43 @@ export default function RREFCalculator() {
             )}
           </div>
 
+          <button
+            onClick={() => { setShowPaste(!showPaste); setPasteError(''); }}
+            aria-expanded={showPaste}
+            className="btn-secondary flex items-center gap-2"
+          >
+            <ClipboardPaste size={14} />
+            Paste Matrix
+          </button>
+
           <button onClick={handleClear} className="btn-secondary flex items-center gap-2">
             <RefreshCw size={14} />
             Clear
           </button>
         </div>
+
+        {showPaste && (
+          <div className="mt-4 bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <label htmlFor="paste-matrix" className="block text-sm font-medium text-slate-700 mb-1">Paste a matrix</label>
+            <p className="text-xs text-slate-500 mb-2">
+              One row per line, entries separated by spaces, commas or tabs. Cells copied from a spreadsheet, <code className="bg-white px-1 rounded border border-slate-200">1 2; 3 4</code> and <code className="bg-white px-1 rounded border border-slate-200">[[1,2],[3,4]]</code> all work.
+            </p>
+            <textarea
+              id="paste-matrix"
+              value={pasteText}
+              onChange={e => { setPasteText(e.target.value); setPasteError(''); }}
+              rows={4}
+              spellCheck={false}
+              placeholder={'1 2 -1 4\n2 4 -2 8\n3 6 -3 12'}
+              className="w-full border border-slate-200 rounded-lg p-2 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            {pasteError && <p role="alert" className="text-sm text-accent-rose mt-1">{pasteError}</p>}
+            <div className="flex gap-2 mt-2">
+              <button onClick={handleApplyPaste} className="btn-primary text-sm">Fill Matrix</button>
+              <button onClick={() => { setShowPaste(false); setPasteError(''); }} className="btn-ghost text-sm">Cancel</button>
+            </div>
+          </div>
+        )}
 
         <div className="mt-4">
           <SaveShareBar

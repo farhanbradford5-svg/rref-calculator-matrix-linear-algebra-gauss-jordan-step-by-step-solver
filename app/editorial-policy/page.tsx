@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Editorial Policy — RREF Calculator',
   description: 'How RREF Calculator creates, reviews, and corrects content. Our math accuracy standards, source citations, and correction policy.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/editorial-policy/' },
 };
 
 export default function EditorialPolicyPage() {
@@ -11,7 +13,7 @@ export default function EditorialPolicyPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Editorial Policy' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Editorial Policy</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026</p>
 
       <article className="prose-content space-y-8">
         <section>
@@ -20,7 +22,7 @@ export default function EditorialPolicyPage() {
             Every page on RREF Calculator is written with two commitments: mathematical accuracy and honest communication about uncertainty. We do not simplify to the point of inaccuracy. When a concept has important edge cases (singular matrices, inconsistent systems, free variables), we address them.
           </p>
           <p>
-            Our math editorial team reviews all content against standard references before publication. The primary references are Gilbert Strang's <em>Introduction to Linear Algebra</em>, David Lay's <em>Linear Algebra and Its Applications</em>, and MIT OpenCourseWare 18.06. Where notation varies between sources, we state the convention we use.
+            All content is checked against standard references before publication. The primary references are Gilbert Strang's <em>Introduction to Linear Algebra</em>, David Lay's <em>Linear Algebra and Its Applications</em>, and MIT OpenCourseWare 18.06. Where notation varies between sources, we state the convention we use.
           </p>
         </section>
 
@@ -37,17 +39,17 @@ export default function EditorialPolicyPage() {
         <section>
           <h2>Authorship and Review</h2>
           <p>
-            Content is created by our team of math writers and developers and reviewed by at least one additional team member with relevant mathematical background before publication. We attribute content to "our math editorial team" rather than individual bylines to reflect this collaborative process.
+            The calculators and guides on this site are built and maintained by Muhammad Farhan, a software engineer and the site&apos;s owner. Explanations are written to agree with the textbooks listed on the Sources page, and each page carries a last-updated date so you can see when it was last revised.
           </p>
           <p>
-            We do not fabricate academic credentials. Team members have mathematical experience through software development, education, and applied mathematics. We do not claim university affiliations or academic positions we do not hold.
+            We do not fabricate academic credentials. Farhan&apos;s background is software engineering, not a university mathematics post, and the site does not claim affiliations it does not have. Its accuracy rests on exact arithmetic that you can verify step by step and on the cited sources.
           </p>
         </section>
 
         <section>
           <h2>Correction Policy</h2>
           <p>
-            We correct errors promptly. If you find a mathematical error, a broken calculator, or misleading content, please <a href="/contact">contact us</a>.
+            We correct errors promptly. If you find a mathematical error, a broken calculator, or misleading content, please <a href="/contact/">contact us</a>.
           </p>
           <p>
             For significant corrections (wrong formula, incorrect worked example, misleading claim), we:
@@ -88,6 +90,13 @@ export default function EditorialPolicyPage() {
             Every page shows a "Updated [Month Year]" date. This reflects the most recent significant content update, not the most recent trivial edit. We review and update pages when: the mathematical standards change, we find content that needs improvement, or significant new related tools are added.
           </p>
         </section>
+        <section>
+          <h2>Site Ownership</h2>
+          <p>
+            RREF Calculator is owned and maintained by <a href="/about/#muhammad-farhan">Muhammad Farhan</a>, a software engineer, who is responsible for the calculators and has the final say on everything published here. To report a correction, use the <a href="/contact/">contact page</a> or message him on <a href="https://www.linkedin.com/in/digitalfarhan/" target="_blank" rel="noopener noreferrer me">LinkedIn</a>.
+          </p>
+        </section>
+        <UpdatedNote className="mt-6" />
       </article>
     </main>
   );

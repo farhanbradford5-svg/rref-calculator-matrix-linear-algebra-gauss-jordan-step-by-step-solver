@@ -4,9 +4,22 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Changelog — RREF Calculator',
   description: 'History of updates to RREF Calculator: new calculators, bug fixes, content additions, and performance improvements.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/changelog/' },
 };
 
 const CHANGELOG = [
+  {
+    date: 'November 2026',
+    version: 'v2.2',
+    changes: [
+      'Added six calculators: Row Echelon Form, Gaussian Elimination, System of Equations, Eigenvalues and Eigenvectors, Cramer\'s Rule, and Null Space (with rank, nullity, column space and row space)',
+      'Added Paste Matrix to the RREF calculator: fill the grid from spreadsheet cells, "1 2; 3 4" or [[1,2],[3,4]]',
+      'Replaced the Eigenvalue "coming soon" page with a working calculator',
+      'Named the site owner, Muhammad Farhan, on the About page and added a last-updated note to every calculator and guide',
+      'Fixed the XML sitemap: URLs now match the canonical trailing-slash form and carry real last-modified dates',
+      'Added a short section to every calculator and guide linking to the tools that cover the next step of the same problem',
+    ],
+  },
   {
     date: 'September 2026',
     version: 'v2.1',

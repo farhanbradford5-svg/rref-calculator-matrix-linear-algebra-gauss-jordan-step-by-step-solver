@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Gauss-Jordan vs Gaussian Elimination — Complete Comparison',
@@ -41,7 +42,7 @@ export default function GaussVsGaussJordanGuide() {
         Gauss-Jordan vs. Gaussian Elimination
       </h1>
       <p className="text-slate-500 mb-2">Both algorithms solve linear systems. Here is exactly how they differ and when to use each.</p>
-      <p className="text-xs text-slate-400 mb-8">📖 5 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+      <p className="text-xs text-slate-400 mb-8">📖 5 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
       <AdSlot id="gvg-top" size="leaderboard" />
 
       <article className="prose-content space-y-10 mt-6">
@@ -228,6 +229,16 @@ Eliminate above second pivot (R₁):
         </section>
 
         <AdSlot id="gvg-bottom" size="banner" />
+          <section>
+            <h2>Run Both Methods Side by Side</h2>
+            <p>
+              Each method now has its own calculator. The <Link href="/matrix/gaussian-elimination" className="text-primary hover:underline">Gaussian elimination calculator</Link> stops at row echelon form and reports the solution from back substitution. The <Link href="/matrix/gauss-jordan" className="text-primary hover:underline">Gauss-Jordan elimination calculator</Link> continues to reduced row echelon form.
+            </p>
+            <p>
+              Enter the same augmented matrix in both and compare the step counts: Gaussian elimination uses fewer row operations, and Gauss-Jordan gives a matrix you can read the answer from directly. The solutions always match.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
       </article>
       <RelatedCalculators picks={['/', '/matrix/gauss-jordan', '/matrix/inverse', '/matrix/determinant', '/guides/rref-step-by-step-tutorial']} />
     </main>

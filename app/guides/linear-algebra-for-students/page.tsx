@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
 import RelatedCalculators from '@/components/calculator/RelatedCalculators';
 import AdSlot from '@/components/calculator/AdSlot';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Linear Algebra for Students — Homework Help and Study Guide',
@@ -42,7 +43,7 @@ export default function LinearAlgebraForStudentsGuide() {
         Linear Algebra for Students
       </h1>
       <p className="text-slate-500 mb-2">Homework help, study strategies, and common mistakes to avoid.</p>
-      <p className="text-xs text-slate-400 mb-8">📖 6 min read · Updated May 2026 · Reviewed by our math editorial team</p>
+      <p className="text-xs text-slate-400 mb-8">📖 6 min read · Updated November 2026 · Maintained by Muhammad Farhan</p>
       <AdSlot id="stu-top" size="leaderboard" />
 
       <article className="prose-content space-y-10 mt-6">
@@ -160,6 +161,16 @@ export default function LinearAlgebraForStudentsGuide() {
         </section>
 
         <AdSlot id="stu-bottom" size="banner" />
+          <section>
+            <h2>A Checking Routine for Homework</h2>
+            <p>
+              Work the problem by hand first, then check one stage at a time rather than only the final answer. Compare your echelon form with the <Link href="/matrix/row-echelon-form" className="text-primary hover:underline">row echelon form calculator</Link> (pivot positions must match even if the numbers differ), your solution with the <Link href="/algebra/system-of-equations" className="text-primary hover:underline">system of equations calculator</Link>, and your eigenvalues with the <Link href="/matrix/eigenvalues" className="text-primary hover:underline">eigenvalue calculator</Link>.
+            </p>
+            <p>
+              When an answer disagrees, open the step list and find the first row operation where your work and the calculator's differ. That is almost always a sign error or a row that was scaled but not fully updated.
+            </p>
+          </section>
+          <UpdatedNote className="mt-6" />
       </article>
       <RelatedCalculators picks={['/', '/matrix/inverse', '/matrix/determinant', '/matrix/gauss-jordan', '/guides/rref-step-by-step-tutorial']} />
     </main>

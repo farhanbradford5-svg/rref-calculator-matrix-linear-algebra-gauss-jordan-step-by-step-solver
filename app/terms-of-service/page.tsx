@@ -4,6 +4,7 @@ import Breadcrumb from '@/components/calculator/Breadcrumb';
 export const metadata: Metadata = {
   title: 'Terms of Service — RREF Calculator',
   description: 'Terms of service for RREF Calculator. Free for personal and educational use.',
+  alternates: { canonical: 'https://rrefmatrixcalc.com/terms-of-service/' },
 };
 
 export default function TermsPage() {
@@ -11,7 +12,7 @@ export default function TermsPage() {
     <main className="max-w-3xl mx-auto px-4 py-8">
       <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Terms of Service' }]} />
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Terms of Service</h1>
-      <p className="text-slate-500 mb-8">Last updated: May 2026</p>
+      <p className="text-slate-500 mb-8">Last updated: November 2026</p>
 
       <article className="prose-content space-y-6">
         <section>
@@ -39,6 +40,10 @@ export default function TermsPage() {
         <section>
           <h2>Changes to Terms</h2>
           <p>We may update these terms at any time. Continued use of the site after changes constitutes acceptance of the updated terms.</p>
+        </section>
+        <section>
+          <h2>Site Operator</h2>
+          <p>These terms are an agreement between you and Muhammad Farhan, the owner and operator of RREF Calculator (rrefmatrixcalc.com). They apply to every calculator and guide on the site, including those added in November 2026.</p>
         </section>
       </article>
     </main>

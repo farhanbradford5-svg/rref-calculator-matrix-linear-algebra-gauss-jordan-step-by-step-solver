@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/calculator/Breadcrumb';
+import UpdatedNote from '@/components/UpdatedNote';
 
 export const metadata: Metadata = {
   title: 'Sources & References — RREF Calculator | Strang, Lay, MIT 18.06',
@@ -65,6 +66,13 @@ export default function SourcesPage() {
             <li><strong>Cross Product as Determinant:</strong> u × v = det([i,j,k; u; v]). (Standard multivariable calculus result.)</li>
           </ul>
         </section>
+        <section>
+          <h2>References for the November 2026 Calculators</h2>
+          <p>
+            The definitions and conventions on the eigenvalue, null space, row echelon form and Cramer&apos;s rule pages follow the same two textbooks cited above: Lay, <em>Linear Algebra and Its Applications</em> (determinants and Cramer&apos;s rule, vector spaces and null spaces, eigenvalues and eigenvectors) and Strang, <em>Introduction to Linear Algebra</em>. Where textbooks disagree, such as whether a row echelon form needs leading 1s, the page says which convention the calculator uses.
+          </p>
+        </section>
+        <UpdatedNote className="mt-6" />
       </article>
     </main>
   );
